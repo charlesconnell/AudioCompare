@@ -66,7 +66,10 @@ class MatchResult(BaseResult):
             else:
                 return "MATCH {f2} {f1} ({s})".format(f1=short_file1, f2=short_file2, s=self.score)
         else:
-            return "NO MATCH"
+            if self.file1_len < self.file2_len:
+                return "NO MATCH {f1} {f2}".format(f1=short_file1, f2=short_file2)
+            else:
+                return "NO MATCH {f2} {f1}".format(f1=short_file1, f2=short_file2)
 
 
 def _to_fingerprints(freq_chunks):
