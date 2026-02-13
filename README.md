@@ -6,10 +6,10 @@ similarity. A file that is likely to have been derived from another
 is flagged as a match.
 
 To run the program, type one of:
-* `audiomatch -f file1.wav -f file2.wav`
-* `audiomatch -f file1.wav -d dir1`
-* `audiomatch -d dir1 -f file1.wav`
-* `audiomatch -d dir1 -d dir2`
+* `uv run audiomatch -f file1.wav -f file2.wav`
+* `uv run audiomatch -f file1.wav -d dir1`
+* `uv run audiomatch -d dir1 -f file1.wav`
+* `uv run audiomatch -d dir1 -d dir2`
 
 Arguments following a "-f" argument must be a filename,
 and arguments following a "-d" argument must be a directory
@@ -27,8 +27,7 @@ non-matching files were compared, and "MATCH ..."
 if two matching files were compared, listing the two
 files that matched, and giving the match score.
 
-This program is intended to run on Linux. Compatibility with OS X
-or Windows would not be difficult, but has not been attempted yet.
+This program is intended to run on any operating system, but has mostly been tested on Linux and Mac OS X.
 
 Dependencies
 ------------
@@ -40,30 +39,21 @@ Dependencies
 
 All audio format support is included - no external audio tools required.
 
-Installation
-------------
-
-This project uses [uv](https://docs.astral.sh/uv/) for dependency management. 
-
-To install the package and its dependencies:
-
-```bash
-uv sync
-```
-
 Usage
 -----
 
-After installation, you can run the program using the `audiomatch` command:
-
-```bash
-audiomatch -f file1.wav -f file2.wav
-```
-
-Or run directly without installation:
+Run the program using `uv run`:
 
 ```bash
 uv run audiomatch -f file1.wav -f file2.wav
+```
+
+Alternatively, if you activate the virtual environment first:
+
+```bash
+uv sync
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+audiomatch -f file1.wav -f file2.wav
 ```
 
 Testing

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-from error import *
-from Matcher import Matcher
+from .error import *
+from .Matcher import Matcher
 from argparse import ArgumentParser
 
 
