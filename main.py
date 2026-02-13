@@ -3,22 +3,32 @@ from error import *
 from Matcher import Matcher
 from argparse import ArgumentParser
 
+
 def audio_matcher():
     """Our main control flow."""
 
     parser = ArgumentParser(
         description="Compare two audio files to determine if one "
-                    "was derived from the other. Supports WAVE and MP3.",
-        prog="audiomatch")
-    parser.add_argument("-f", action="append",
-                        required=False, dest="files",
-                        default=list(),
-                        help="A file to examine.")
-    parser.add_argument("-d", action="append",
-                        required=False, dest="dirs",
-                        default=list(),
-                        help="A directory of files to examine. "
-                             "Directory must contain only audio files.")
+        "was derived from the other. Supports WAVE and MP3.",
+        prog="audiomatch",
+    )
+    parser.add_argument(
+        "-f",
+        action="append",
+        required=False,
+        dest="files",
+        default=list(),
+        help="A file to examine.",
+    )
+    parser.add_argument(
+        "-d",
+        action="append",
+        required=False,
+        dest="dirs",
+        default=list(),
+        help="A directory of files to examine. "
+        "Directory must contain only audio files.",
+    )
 
     args = parser.parse_args()
 
@@ -37,9 +47,10 @@ def audio_matcher():
             code = 1
             warn(match.message)
         else:
-            print match
+            print(match)
 
     return code
+
 
 if __name__ == "__main__":
     exit(audio_matcher())

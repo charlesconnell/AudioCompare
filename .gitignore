@@ -2,4 +2,5 @@
 .idea
 *~
 test_data
+test/test_fixtures/
 

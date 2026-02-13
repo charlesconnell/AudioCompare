@@ -5,6 +5,7 @@ import time
 class FFT:
     """A mechanism for identifying the dominant frequencies
     in time ranges in an audio file."""
+
     def __init__(self, input_file, chunk_size=1024, overlap_ratio=2):
         """Set up an file for FFT processing.
         The constructor doesn't actually do the processing.
@@ -25,15 +26,18 @@ class FFT:
         less than chunk size otherwise."""
 
         if chunks == -1:
-            chunks = self.input_file.get_total_samples() / self.chunk_size
+            chunks = self.input_file.get_total_samples() // self.chunk_size
 
         # get all the audio samples we'll be working with
         samples = self.input_file.get_audio_samples(chunks * self.chunk_size)
         # mix those samples down into one channel
         samples = samples.mean(axis=0)
-        result = self.specgram(samples, NFFT=self.chunk_size,
-                               window=FFT.__window_hanning,
-                               noverlap=self.chunk_size/self.overlap_ratio)
+        result = self.specgram(
+            samples,
+            NFFT=self.chunk_size,
+            window=FFT.__window_hanning,
+            noverlap=self.chunk_size // self.overlap_ratio,
+        )
         result = result.transpose()
         return result
 
@@ -54,20 +58,20 @@ class FFT:
         Original code is copyright (c) 2002-2011 John D. Hunter;
         All Rights Reserved"""
 
-        numFreqs = NFFT//2 + 1
+        numFreqs = NFFT // 2 + 1
         windowVals = window(np.ones((NFFT,), x.dtype))
 
         step = NFFT - noverlap
         ind = np.arange(0, len(x) - NFFT + 1, step)
         n = len(ind)
-        Pxx = np.zeros((numFreqs, n), np.complex_)
+        Pxx = np.zeros((numFreqs, n), np.complex128)
 
         # do the ffts of the slices
-        for i in xrange(n):
-            thisX = x[ind[i]:ind[i]+NFFT]
+        for i in range(n):
+            thisX = x[ind[i] : ind[i] + NFFT]
             thisX = windowVals * thisX
             fx = np.fft.fft(thisX, n=NFFT)
-            Pxx[:,i] = np.conjugate(fx[:numFreqs]) * fx[:numFreqs]
+            Pxx[:, i] = np.conjugate(fx[:numFreqs]) * fx[:numFreqs]
 
         return Pxx
 
@@ -79,5 +83,4 @@ class FFT:
     @staticmethod
     def __window_hanning(x):
         "return x times the hanning window of len(x)"
-        return np.hanning(len(x))*x
-
+        return np.hanning(len(x)) * x

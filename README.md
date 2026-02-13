@@ -6,15 +6,19 @@ similarity. A file that is likely to have been derived from another
 is flagged as a match.
 
 To run the program, type one of:
-* ./audiocompare -f _file1_ -f _file2_
-* ./audiocompare -f _file1_ -d _dir1_
-* ./audiocompare -d _dir1_ -f _file1_
-* ./audiocompare -d _dir1_ -d _dir2_
+* `audiomatch -f file1.wav -f file2.wav`
+* `audiomatch -f file1.wav -d dir1`
+* `audiomatch -d dir1 -f file1.wav`
+* `audiomatch -d dir1 -d dir2`
 
 Arguments following a "-f" argument must be a filename,
 and arguments following a "-d" argument must be a directory
 containing only audio files. Input files must be WAVE or MP3 files.
 You may list the same file or directory twice.
+
+Supported formats:
+* WAVE: PCM (16-bit) and IEEE Float (32-bit)
+* MP3: All standard MP3 formats
 
 If errors are found, appropriate error messages
 will be printed, and the program may continue if it can.
@@ -29,8 +33,86 @@ or Windows would not be difficult, but has not been attempted yet.
 Dependencies
 ------------
 
-* Python 2.7
+* Python 3.8+
 * NumPy
+* miniaudio (for MP3 decoding)
+* uv (for package management)
+
+All audio format support is included - no external audio tools required.
+
+Installation
+------------
+
+This project uses [uv](https://docs.astral.sh/uv/) for dependency management. 
+
+To install the package and its dependencies:
+
+```bash
+uv sync
+```
+
+Usage
+-----
+
+After installation, you can run the program using the `audiomatch` command:
+
+```bash
+audiomatch -f file1.wav -f file2.wav
+```
+
+Or run directly without installation:
+
+```bash
+uv run audiomatch -f file1.wav -f file2.wav
+```
+
+Testing
+-------
+
+The project includes end-to-end tests that validate the core matching functionality.
+
+### Running Tests
+
+1. Install test dependencies:
+```bash
+uv sync --extra test
+```
+
+2. Download test files (first time only):
+```bash
+uv run python test/download_test_files.py
+```
+
+3. Run the test suite:
+```bash
+uv run pytest test/ -v
+```
+
+Test files are downloaded from publicly available sources and stored in `test/test_fixtures/` (gitignored).
+See `test/README.md` for detailed testing documentation.
+
+Technical Details
+-----------------
+
+### Audio Format Support
+
+AudioCompare includes native support for WAVE and MP3 formats with no external dependencies:
+
+- **WAVE files**: Parsed directly using custom WAV parser supporting PCM and IEEE Float formats
+- **MP3 files**: Decoded using the miniaudio library (pure Python bindings to C decoder)
+
+Both formats are converted to a common PCM representation for fingerprint analysis.
+
+### How It Works
+
+AudioCompare uses audio fingerprinting to detect if files are derived from each other:
+
+1. **FFT Analysis**: Divides audio into time chunks and performs FFT to extract frequency data
+2. **Fingerprint Extraction**: Identifies dominant frequencies in each chunk to create a hash
+3. **Matching**: Compares fingerprint hashes between files to find time-aligned patterns
+4. **Scoring**: Calculates match confidence based on consistent time offsets
+
+A match score above 5 indicates files are likely derived from the same source.
 
 History
 -------
@@ -60,6 +142,5 @@ can be found in FFT.py.
 Notes
 -----
 
-Tests in the test directory depend on files that aren't in this source tree,
-so don't expect them to pass for you. The files are not included because
-many are copyrighted, and they are too big to reasonably store in Git.
+Test files are automatically downloaded from public sources when you run the test setup script.
+The audio files are stored in `test/test_fixtures/` and are excluded from git due to their size (~15MB total).
