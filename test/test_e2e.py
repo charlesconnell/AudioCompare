@@ -210,6 +210,123 @@ class TestDirectoryComparisons:
         assert match_count >= 2, f"Expected at least 2 matches, found {match_count}"
 
 
+class TestExitCodes:
+    """Test cases specifically for exit codes."""
+
+    def test_exit_code_success_on_match(
+        self, base_files_dir, copies_dir, run_audiomatch_fixture
+    ):
+        """Exit code should be 0 when files match successfully."""
+        file1 = base_files_dir / "piano2.wav"
+        file2 = copies_dir / "piano2_copy.wav"
+
+        result = run_audiomatch_fixture(["-f", str(file1), "-f", str(file2)])
+
+        assert result.returncode == 0, (
+            f"Expected exit code 0 for successful match, got {result.returncode}"
+        )
+        assert "MATCH" in result.stdout
+
+    def test_exit_code_success_on_no_match(
+        self, different_dir, run_audiomatch_fixture
+    ):
+        """Exit code should be 0 when files don't match (no error occurred)."""
+        file1 = different_dir / "piano2.wav"
+        file2 = different_dir / "organfinale.wav"
+
+        result = run_audiomatch_fixture(["-f", str(file1), "-f", str(file2)])
+
+        assert result.returncode == 0, (
+            f"Expected exit code 0 for successful comparison (no match), got {result.returncode}"
+        )
+        assert "NO MATCH" in result.stdout
+
+    def test_exit_code_failure_on_invalid_file(
+        self, tmp_path, base_files_dir, run_audiomatch_fixture
+    ):
+        """Exit code should be 1 when processing an invalid file."""
+        invalid_file = tmp_path / "not_audio.txt"
+        invalid_file.write_text("This is not an audio file")
+        valid_file = base_files_dir / "piano2.wav"
+
+        result = run_audiomatch_fixture(
+            ["-f", str(invalid_file), "-f", str(valid_file)]
+        )
+
+        assert result.returncode == 1, (
+            f"Expected exit code 1 for invalid file, got {result.returncode}"
+        )
+        assert "ERROR" in result.stderr or "ERROR" in result.stdout
+
+    def test_exit_code_failure_on_missing_file(
+        self, base_files_dir, run_audiomatch_fixture
+    ):
+        """Exit code should be 1 when a file doesn't exist."""
+        valid_file = base_files_dir / "piano2.wav"
+        missing_file = base_files_dir / "does_not_exist.wav"
+
+        result = run_audiomatch_fixture(
+            ["-f", str(missing_file), "-f", str(valid_file)]
+        )
+
+        assert result.returncode == 1, (
+            f"Expected exit code 1 for missing file, got {result.returncode}"
+        )
+        # Should have error output (either formatted ERROR or exception traceback)
+        assert len(result.stderr) > 0 or "ERROR" in result.stdout, (
+            "Expected error output in stderr or stdout"
+        )
+
+    def test_exit_code_failure_on_wrong_argument_count(self, run_audiomatch_fixture):
+        """Exit code should be 1 when incorrect number of inputs provided."""
+        # Only one input provided
+        result = run_audiomatch_fixture(["-f", "dummy.wav"])
+
+        assert result.returncode == 1, (
+            f"Expected exit code 1 for wrong argument count, got {result.returncode}"
+        )
+        assert "ERROR" in result.stderr or "ERROR" in result.stdout
+
+    def test_exit_code_failure_on_no_arguments(self, run_audiomatch_fixture):
+        """Exit code should be 1 when no inputs provided."""
+        result = run_audiomatch_fixture([])
+
+        assert result.returncode == 1, (
+            f"Expected exit code 1 for no arguments, got {result.returncode}"
+        )
+        assert "ERROR" in result.stderr or "ERROR" in result.stdout
+
+    def test_exit_code_failure_on_three_inputs(
+        self, base_files_dir, run_audiomatch_fixture
+    ):
+        """Exit code should be 1 when three inputs provided (should be exactly two)."""
+        file1 = base_files_dir / "piano2.wav"
+        file2 = base_files_dir / "organfinale.wav"
+        file3 = base_files_dir / "LRMonoPhase4.wav"
+
+        result = run_audiomatch_fixture(
+            ["-f", str(file1), "-f", str(file2), "-f", str(file3)]
+        )
+
+        assert result.returncode == 1, (
+            f"Expected exit code 1 for three inputs, got {result.returncode}"
+        )
+        assert "ERROR" in result.stderr or "ERROR" in result.stdout
+        assert "exactly two" in result.stderr.lower() or "exactly two" in result.stdout.lower()
+
+    def test_exit_code_success_on_directory_match(
+        self, base_files_dir, copies_dir, run_audiomatch_fixture
+    ):
+        """Exit code should be 0 when comparing directories successfully."""
+        result = run_audiomatch_fixture(
+            ["-d", str(base_files_dir), "-d", str(copies_dir)]
+        )
+
+        assert result.returncode == 0, (
+            f"Expected exit code 0 for successful directory comparison, got {result.returncode}"
+        )
+
+
 class TestErrorHandling:
     """Test cases for error handling."""
 
