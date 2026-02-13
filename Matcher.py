@@ -14,7 +14,7 @@ from common import *
 BUCKET_SIZE = 20
 BUCKETS = 4
 BITS_PER_NUMBER = int(math.ceil(math.log(BUCKET_SIZE, 2)))
-assert((BITS_PER_NUMBER * BUCKETS) <= 32)
+assert (BITS_PER_NUMBER * BUCKETS) <= 32
 
 NORMAL_CHUNK_SIZE = 1024
 NORMAL_SAMPLE_RATE = 44100.0
@@ -25,6 +25,7 @@ SCORE_THRESHOLD = 5
 class FileResult(BaseResult):
     """The result of fingerprinting
     an entire audio file."""
+
     def __init__(self, fingerprints, file_len, filename):
         super(FileResult, self).__init__(True, "")
         self.fingerprints = fingerprints
@@ -39,6 +40,7 @@ class ChunkInfo(object):
     """These objects will be the values in
     our master hashes that map fingerprints
     to instances of this class."""
+
     def __init__(self, chunk_index, filename):
         self.chunk_index = chunk_index
         self.filename = filename
@@ -49,6 +51,7 @@ class ChunkInfo(object):
 
 class MatchResult(BaseResult):
     """The result of comparing two files."""
+
     def __init__(self, file1, file2, file1_len, file2_len, score):
         super(MatchResult, self).__init__(True, "")
         self.file1 = file1
@@ -62,9 +65,13 @@ class MatchResult(BaseResult):
         short_file2 = os.path.basename(self.file2)
         if self.score > SCORE_THRESHOLD:
             if self.file1_len < self.file2_len:
-                return "MATCH {f1} {f2} ({s})".format(f1=short_file1, f2=short_file2, s=self.score)
+                return "MATCH {f1} {f2} ({s})".format(
+                    f1=short_file1, f2=short_file2, s=self.score
+                )
             else:
-                return "MATCH {f2} {f1} ({s})".format(f1=short_file1, f2=short_file2, s=self.score)
+                return "MATCH {f2} {f1} ({s})".format(
+                    f1=short_file1, f2=short_file2, s=self.score
+                )
         else:
             if self.file1_len < self.file2_len:
                 return "NO MATCH {f1} {f2}".format(f1=short_file1, f2=short_file2)
@@ -82,14 +89,14 @@ def _to_fingerprints(freq_chunks):
     chunks = len(freq_chunks)
     fingerprints = np.zeros(chunks, dtype=np.uint32)
     # Examine each chunk independently
-    for chunk in xrange(chunks):
+    for chunk in range(chunks):
         fingerprint = 0
         for bucket in range(BUCKETS):
             start_index = bucket * BUCKET_SIZE
             end_index = (bucket + 1) * BUCKET_SIZE
             bucket_vals = freq_chunks[chunk][start_index:end_index]
             max_index = bucket_vals.argmax()
-            fingerprint += (max_index << (bucket * BITS_PER_NUMBER))
+            fingerprint += max_index << (bucket * BITS_PER_NUMBER)
         fingerprints[chunk] = fingerprint
 
     # return the indexes of the loudest frequencies
@@ -114,7 +121,7 @@ def _file_fingerprint(filename):
         # file. It is important that each chunk represent the
         # same amount of time, regardless of the sample
         # rate of the file.
-        chunk_size_adjust_factor = (NORMAL_SAMPLE_RATE / file.get_sample_rate())
+        chunk_size_adjust_factor = NORMAL_SAMPLE_RATE / file.get_sample_rate()
         fft = FFT(file, int(NORMAL_CHUNK_SIZE / chunk_size_adjust_factor))
         series = fft.series()
 
@@ -189,7 +196,11 @@ class Matcher(object):
             if stat.S_ISREG(node_stat.st_mode):
                 results.append(abs_node)
             else:
-                warn("An inode that is not a regular file was found at {f}".format(abs_node))
+                warn(
+                    "An inode that is not a regular file was found at {f}".format(
+                        abs_node
+                    )
+                )
 
         return results
 
@@ -200,7 +211,7 @@ class Matcher(object):
         to ChunkInfo objects."""
         master = defaultdict(list)
         for f in files:
-            for chunk in xrange(len(f.fingerprints)):
+            for chunk in range(len(f.fingerprints)):
                 hash = f.fingerprints[chunk]
                 master[hash].append(ChunkInfo(chunk, f.filename))
 
@@ -242,7 +253,7 @@ class Matcher(object):
             file_match_offsets[f] = defaultdict(lambda: 0)
 
         # For each chunk in the query file
-        for query_chunk_index in xrange(len(file.fingerprints)):
+        for query_chunk_index in range(len(file.fingerprints)):
             # See if that chunk's fingerprint is in our master hash
             chunk_fingerprint = file.fingerprints[query_chunk_index]
             if chunk_fingerprint in master_hash:
@@ -265,7 +276,7 @@ class Matcher(object):
             # hash keys were found with the same time difference
             # relative to each other.
             if len(offsets) != 0:
-                max_offset = max(offsets.viewvalues())
+                max_offset = max(offsets.values())
             else:
                 max_offset = 0
 
@@ -281,7 +292,9 @@ class Matcher(object):
             else:
                 score = 0
 
-            results.append(MatchResult(file.filename, f, file.file_len, file_lengths[f], score))
+            results.append(
+                MatchResult(file.filename, f, file.file_len, file_lengths[f], score)
+            )
 
         return results
 
@@ -334,18 +347,36 @@ class Matcher(object):
 
         # Proceed only with fingerprints that were computed
         # successfully
-        dir1_successes = filter(lambda x: x.success and x.file_len > 0, dir1_results)
-        dir2_successes = filter(lambda x: x.success and x.file_len > 0, dir2_results)
+        dir1_successes = list(
+            filter(lambda x: x.success and x.file_len > 0, dir1_results)
+        )
+        dir2_successes = list(
+            filter(lambda x: x.success and x.file_len > 0, dir2_results)
+        )
 
         # Empty files should match other empty files
         # Our matching algorithm will not report these as a match,
         # so we have to make a special case for it.
-        dir1_empty_files = filter(lambda x: x.success and x.file_len == 0, dir1_results)
-        dir2_empty_files = filter(lambda x: x.success and x.file_len == 0, dir2_results)
+        dir1_empty_files = list(
+            filter(lambda x: x.success and x.file_len == 0, dir1_results)
+        )
+        dir2_empty_files = list(
+            filter(lambda x: x.success and x.file_len == 0, dir2_results)
+        )
 
         # Every empty file should match every other empty file
-        for empty_file1, empty_file2 in itertools.product(dir1_empty_files, dir2_empty_files):
-            results.append(MatchResult(empty_file1.filename, empty_file2.filename, empty_file1.file_len, empty_file2.file_len, SCORE_THRESHOLD + 1))
+        for empty_file1, empty_file2 in itertools.product(
+            dir1_empty_files, dir2_empty_files
+        ):
+            results.append(
+                MatchResult(
+                    empty_file1.filename,
+                    empty_file2.filename,
+                    empty_file1.file_len,
+                    empty_file2.file_len,
+                    SCORE_THRESHOLD + 1,
+                )
+            )
 
         # This maps filenames to the lengths of the files
         dir1_file_lengths = Matcher.__file_lengths(dir1_successes)
@@ -353,8 +384,8 @@ class Matcher(object):
 
         # Get the combined sizes of the files in our two search
         # paths
-        dir1_size = sum(dir1_file_lengths.viewvalues())
-        dir2_size = sum(dir2_file_lengths.viewvalues())
+        dir1_size = sum(dir1_file_lengths.values())
+        dir2_size = sum(dir2_file_lengths.values())
 
         # Whichever search path has more data in it is the
         # one we want to put in the master hash, and then query
@@ -381,8 +412,9 @@ class Matcher(object):
             # same time difference relative to each
             # other. This indicates that the two files
             # contain similar audio.
-            file_matches = Matcher.__report_file_matches(file, master_hash, file_lengths)
+            file_matches = Matcher.__report_file_matches(
+                file, master_hash, file_lengths
+            )
             results.extend(file_matches)
 
         return results
-

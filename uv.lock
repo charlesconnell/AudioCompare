@@ -1,0 +1,885 @@
+version = 1
+revision = 3
+requires-python = ">=3.8"
+resolution-markers = [
+    "python_full_version >= '3.11'",
+    "python_full_version == '3.10.*'",
+    "python_full_version < '3.10'",
+]
+
+[[package]]
+name = "audiomatch"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "miniaudio" },
+    { name = "numpy", version = "1.24.4", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version < '3.10'" },
+    { name = "numpy", version = "2.2.6", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version == '3.10.*'" },
+    { name = "numpy", version = "2.4.2", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version >= '3.11'" },
+]
+
+[package.optional-dependencies]
+test = [
+    { name = "pytest", version = "8.3.5", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version < '3.10'" },
+    { name = "pytest", version = "9.0.2", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version >= '3.10'" },
+    { name = "pytest-timeout" },
+    { name = "requests", version = "2.32.4", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version < '3.10'" },
+    { name = "requests", version = "2.32.5", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version >= '3.10'" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "miniaudio", specifier = ">=1.59" },
+    { name = "numpy", specifier = ">=1.24.0" },
+    { name = "pytest", marker = "extra == 'test'", specifier = ">=7.0.0" },
+    { name = "pytest-timeout", marker = "extra == 'test'", specifier = ">=2.1.0" },
+    { name = "requests", marker = "extra == 'test'", specifier = ">=2.31.0" },
+]
+provides-extras = ["test"]
+
+[[package]]
+name = "certifi"
+version = "2026.1.4"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/e0/2d/a891ca51311197f6ad14a7ef42e2399f36cf2f9bd44752b3dc4eab60fdc5/certifi-2026.1.4.tar.gz", hash = "md5:d8447ad858fa15af16f91e32f182aa85" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e6/ad/3cc14f097111b4de0040c83a525973216457bbeeb63739ef1ed275c1c021/certifi-2026.1.4-py3-none-any.whl", hash = "md5:1dab98768140ad2d8dbc9be8f14a2af9" },
+]
+
+[[package]]
+name = "cffi"
+version = "1.17.1"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version < '3.10'",
+]
+dependencies = [
+    { name = "pycparser", version = "2.23", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version < '3.10'" },
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz", hash = "md5:4336ca58b2df0cc3b163884d5fa2e5e2" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/90/07/f44ca684db4e4f08a3fdc6eeb9a0d15dc6883efc7b8c90357fdbf74e186c/cffi-1.17.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "md5:e4bfb08ce5494c9ab84bc42cc953ac0f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/08/fd/cc2fedbd887223f9f5d170c96e57cbf655df9831a6546c1727ae13fa977a/cffi-1.17.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "md5:a06e9e86297ace55cfe5d9da03d8ab1e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/de/cc/4635c320081c78d6ffc2cab0a76025b691a91204f4aa317d568ff9280a2d/cffi-1.17.1-cp310-cp310-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:f14a8c479c125ddcf69478c6a2c6dc5f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b6/7b/3b2b250f3aab91abe5f8a51ada1b717935fdaec53f790ad4100fe2ec64d1/cffi-1.17.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:1592515f34806bc59cb730062732d1fa" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d3/48/1b9283ebbf0ec065148d8de05d647a986c5f22586b18120020452fff8f5d/cffi-1.17.1-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "md5:ba7ee4440892978f70571255fc0ca3ef" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/40/87/3b8452525437b40f39ca7ff70276679772ee7e8b394934ff60e63b7b090c/cffi-1.17.1-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "md5:8f4843090a7c65ccffcbe8fcc06d0b28" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/8d/fb/4da72871d177d63649ac449aec2e8a29efe0274035880c7af59101ca2232/cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:11351a1a87b2f5a8153c94533ae161ed" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ab/a0/62f00bcb411332106c02b663b26f3545a9ef136f80d5df746c05878f8c4b/cffi-1.17.1-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "md5:95148e7380aa8b45ec27c0581961cbcc" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/36/83/76127035ed2e7e27b0787604d99da630ac3123bfb02d8e80c633f218a11d/cffi-1.17.1-cp310-cp310-musllinux_1_1_i686.whl", hash = "md5:6ec0a8ddbdfca38c11ab52980559cabb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/21/81/a6cd025db2f08ac88b901b745c163d884641909641f9b826e8cb87645942/cffi-1.17.1-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "md5:91dc8337a7a6d9d18e732eb0f2fd06ba" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f8/fe/4d41c2f200c4a457933dbd98d3cf4e911870877bd94d9656cc0fcb390681/cffi-1.17.1-cp310-cp310-win32.whl", hash = "md5:201d6776f14351ce7a8166c037c1cac0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d1/b6/0b0f5ab93b0df4acc49cae758c81fe4e5ef26c3ae2e10cc69249dfd8b3ab/cffi-1.17.1-cp310-cp310-win_amd64.whl", hash = "md5:d21f7f343bc90eae07ca7f818f7dc574" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/6b/f4/927e3a8899e52a27fa57a48607ff7dc91a9ebe97399b357b85a0c7892e00/cffi-1.17.1-cp311-cp311-macosx_10_9_x86_64.whl", hash = "md5:e29300d339463cc580167d86ee061755" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/6c/f5/6c3a8efe5f503175aaddcbea6ad0d2c96dad6f5abb205750d1b3df44ef29/cffi-1.17.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "md5:961c2dc70a88114ba19a90d16038c655" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/94/dd/a3f0118e688d1b1a57553da23b16bdade96d2f9bcda4d32e7d2838047ff7/cffi-1.17.1-cp311-cp311-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:c625a3886863fb4067be1a8f43f579a0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2e/ea/70ce63780f096e16ce8588efe039d3c4f91deb1dc01e9c73a287939c79a6/cffi-1.17.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:2b6636738fdcae8690ff45db1bd58860" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1c/a0/a4fa9f4f781bda074c3ddd57a572b060fa0df7655d2a4247bbe277200146/cffi-1.17.1-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "md5:570101a49db168804cb87483c0a29de9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/62/12/ce8710b5b8affbcdd5c6e367217c242524ad17a02fe5beec3ee339f69f85/cffi-1.17.1-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "md5:9d507f084dff141464535f87f9f2178e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ff/6b/d45873c5e0242196f042d555526f92aa9e0c32355a1be1ff8c27f077fd37/cffi-1.17.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:3d0f70ed20cfe0a59fb1d064d879fce0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1a/52/d9a0e523a572fbccf2955f5abe883cfa8bcc570d7faeee06336fbd50c9fc/cffi-1.17.1-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "md5:e1ed4d7a5d815a5289829d68c91940df" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/44/74/f2a2460684a1a2d00ca799ad880d54652841a780c4c97b87754f660c7603/cffi-1.17.1-cp311-cp311-musllinux_1_1_i686.whl", hash = "md5:27f201c53d933f5a0ebf10d0413668e4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f8/4a/34599cac7dfcd888ff54e801afe06a19c17787dfd94495ab0c8d35fe99fb/cffi-1.17.1-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "md5:3854101bad5fd27590d963e1aa518092" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/34/33/e1b8a1ba29025adbdcda5fb3a36f94c03d771c1b7b12f726ff7fef2ebe36/cffi-1.17.1-cp311-cp311-win32.whl", hash = "md5:3d13d73305cf3885218e74205b582be6" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3d/97/50228be003bb2802627d28ec0627837ac0bf35c90cf769812056f235b2d1/cffi-1.17.1-cp311-cp311-win_amd64.whl", hash = "md5:178a914fd07be3b4e083f5bf0a5d42a8" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/5a/84/e94227139ee5fb4d600a7a4927f322e1d4aea6fdc50bd3fca8493caba23f/cffi-1.17.1-cp312-cp312-macosx_10_9_x86_64.whl", hash = "md5:a546a4cb06e6918a3216aa2621bc641a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/da/ee/fb72c2b48656111c4ef27f0f91da355e130a923473bf5ee75c5643d00cca/cffi-1.17.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "md5:6cdcd2ec199bc0c966453bd65019d6cb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/cc/b6/db007700f67d151abadf508cbfd6a1884f57eab90b1bb985c4c8c02b0f28/cffi-1.17.1-cp312-cp312-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:70416e5a421fc6598c8f5d262805284a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1a/df/f8d151540d8c200eb1c6fba8cd0dfd40904f1b0682ea705c36e6c2e97ab3/cffi-1.17.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:cdd8931222f5e4fd94e0719fd742f576" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/28/c0/b31116332a547fd2677ae5b78a2ef662dfc8023d67f41b2a83f7c2aa78b1/cffi-1.17.1-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "md5:cdad2a14c532a6475f51b5a03deb7c11" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/91/2b/9a1ddfa5c7f13cab007a2c9cc295b70fbbda7cb10a286aa6810338e60ea1/cffi-1.17.1-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "md5:31c6c7d525131e1ac1b27c08d08f62bd" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b2/d5/da47df7004cb17e4955df6a43d14b3b4ae77737dff8bf7f8f333196717bf/cffi-1.17.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:9a3c4039917ce4c92bb5b26636a5bc9a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/0b/ac/2a28bcf513e93a219c8a4e8e125534f4f6db03e3179ba1c45e949b76212c/cffi-1.17.1-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "md5:b07a6241dd929df0d2b88d3b93791f5c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d4/38/ca8a4f639065f14ae0f1d9751e70447a261f1a30fa7547a828ae08142465/cffi-1.17.1-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "md5:87338e15253f8788c55fc4a7b1af4464" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/86/c5/28b2d6f799ec0bdecf44dced2ec5ed43e0eb63097b0f58c293583b406582/cffi-1.17.1-cp312-cp312-win32.whl", hash = "md5:9038af6bf9c3aac8ff9af1cb284a866a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/50/b9/db34c4755a7bd1cb2d1603ac3863f22bcecbd1ba29e5ee841a4bc510b294/cffi-1.17.1-cp312-cp312-win_amd64.whl", hash = "md5:db4e5e5ddd2fa126c645b2e71a2cbf0a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/8d/f8/dd6c246b148639254dad4d6803eb6a54e8c85c6e11ec9df2cffa87571dbe/cffi-1.17.1-cp313-cp313-macosx_10_13_x86_64.whl", hash = "md5:3d11e1d2562693b016cb81a5d9946326" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/8b/f1/672d303ddf17c24fc83afd712316fda78dc6fce1cd53011b839483e1ecc8/cffi-1.17.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "md5:d86cb32298930ea9e494c125be6fece0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/0e/2d/eab2e858a91fdff70533cab61dcff4a1f55ec60425832ddfdc9cd36bc8af/cffi-1.17.1-cp313-cp313-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:c9fec5ce7f38067cbf33b7e199ce667b" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/75/b2/fbaec7c4455c604e29388d55599b99ebcc250a60050610fadde58932b7ee/cffi-1.17.1-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:406c664e94d5aed34eafc18de9081ec0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4f/b7/6e4a2162178bf1935c336d4da8a9352cccab4d3a5d7914065490f08c0690/cffi-1.17.1-cp313-cp313-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "md5:d57c0c97532862de823d353e8787054d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c7/8a/1d0e4a9c26e54746dc08c2c6c037889124d4f59dffd853a659fa545f1b40/cffi-1.17.1-cp313-cp313-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "md5:7582bcbaca21eb0e0e21daf79bb74d31" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/26/9f/1aab65a6c0db35f43c4d1b4f580e8df53914310afc10ae0397d29d697af4/cffi-1.17.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:58501ab3757c9ebf9815c7e121fc8593" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/5f/e4/fb8b3dd8dc0e98edf1135ff067ae070bb32ef9d509d6cb0f538cd6f7483f/cffi-1.17.1-cp313-cp313-musllinux_1_1_aarch64.whl", hash = "md5:f7b0acf6c33cdc91ae2d2bd3b7ad1b1a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f1/47/d7145bf2dc04684935d57d67dff9d6d795b2ba2796806bb109864be3a151/cffi-1.17.1-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "md5:12013176688957687dc6e6679adbf83a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/bf/ee/f94057fa6426481d663b88637a9a10e859e492c73d0384514a17d78ee205/cffi-1.17.1-cp313-cp313-win32.whl", hash = "md5:3baa27be0c2b92dd23a55b4c7a269258" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/7c/fc/6a8cb64e5f0324877d503c854da15d76c1e50eb722e320b15345c4d0c6de/cffi-1.17.1-cp313-cp313-win_amd64.whl", hash = "md5:48976fe551948522c12bdcbc73cfb8b9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/48/08/15bf6b43ae9bd06f6b00ad8a91f5a8fe1069d4c9fab550a866755402724e/cffi-1.17.1-cp38-cp38-macosx_10_9_x86_64.whl", hash = "md5:df3f45926cc2263f218efbb6f46c0f11" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c2/5b/f1523dd545f92f7df468e5f653ffa4df30ac222f3c884e51e139878f1cb5/cffi-1.17.1-cp38-cp38-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:5ff08ac8d88c0e893ace8d40423b44bb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/53/93/7e547ab4105969cc8c93b38a667b82a835dd2cc78f3a7dad6130cfd41e1d/cffi-1.17.1-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:a84509e9d95d7bf1d2022389ec55f116" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/56/c4/a308f2c332006206bb511de219efeff090e9d63529ba0a77aae72e82248b/cffi-1.17.1-cp38-cp38-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "md5:5dc86fa62f7537e9dfd6c6f99d555366" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ca/5b/b63681518265f2f4060d2b60755c1c77ec89e5e045fc3773b72735ddaad5/cffi-1.17.1-cp38-cp38-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "md5:35ce44a32d60aff58e6c6949cbb3fa1d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/bb/19/b51af9f4a4faa4a8ac5a0e5d5c2522dcd9703d07fac69da34a36c4d960d3/cffi-1.17.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:58ebce3d8138e4b8b36c70be5bb4e9f3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e2/63/2bed8323890cb613bbecda807688a31ed11a7fe7afe31f8faaae0206a9a3/cffi-1.17.1-cp38-cp38-win32.whl", hash = "md5:914d46c75f2ef56cff957624684e1e88" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2f/70/80c33b044ebc79527447fd4fbc5455d514c3bb840dede4455de97da39b4d/cffi-1.17.1-cp38-cp38-win_amd64.whl", hash = "md5:4cbb538dae62328911b3c4d84f81354a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b9/ea/8bb50596b8ffbc49ddd7a1ad305035daa770202a6b782fc164647c2673ad/cffi-1.17.1-cp39-cp39-macosx_10_9_x86_64.whl", hash = "md5:62265689ba78322457b5d5cab57753a4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ae/11/e77c8cd24f58285a82c23af484cf5b124a376b32644e445960d1a4654c3a/cffi-1.17.1-cp39-cp39-macosx_11_0_arm64.whl", hash = "md5:79da0139ba10562cd3370fd05808f1c6" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ed/65/25a8dc32c53bf5b7b6c2686b42ae2ad58743f7ff644844af7cdb29b49361/cffi-1.17.1-cp39-cp39-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:fce92b546b55acb27e81c06c10899270" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/42/7a/9d086fab7c66bd7c4d0f27c57a1b6b068ced810afc498cc8c49e0088661c/cffi-1.17.1-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:0e44863b3ef14f6b7453c82fadc7dca1" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/da/63/1785ced118ce92a993b0ec9e0d0ac8dc3e5dbfbcaa81135be56c69cabbb6/cffi-1.17.1-cp39-cp39-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "md5:4816d5557de06cf52188bea50d818606" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/74/06/90b8a44abf3556599cdec107f7290277ae8901a58f75e6fe8f970cd72418/cffi-1.17.1-cp39-cp39-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "md5:02291acdcac2a6fa6b94dc02dc29f04d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/bd/62/a1f468e5708a70b1d86ead5bab5520861d9c7eacce4a885ded9faa7729c3/cffi-1.17.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:9cdef66a0a6c9c743f4e82e5b52a13d6" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/5b/95/b34462f3ccb09c2594aa782d90a90b045de4ff1f70148ee79c69d37a0a5a/cffi-1.17.1-cp39-cp39-musllinux_1_1_aarch64.whl", hash = "md5:a8c62b0ed92e2162740d12f41fb4deb3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/fc/fc/a1e4bebd8d680febd29cf6c8a40067182b64f00c7d105f8f26b5bc54317b/cffi-1.17.1-cp39-cp39-musllinux_1_1_i686.whl", hash = "md5:bad2dd458744fe3254c144a7647e2bf8" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e6/c3/21cab7a6154b6a5ea330ae80de386e7665254835b9e98ecc1340b3a7de9a/cffi-1.17.1-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "md5:2928820ddd12104a1cdffd0c2f4e1acb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/cb/b5/fd9f8b5a84010ca169ee49f4e4ad6f8c05f4e3545b72ee041dbbcb159882/cffi-1.17.1-cp39-cp39-win32.whl", hash = "md5:0e109bac6c76156b4fed27b9e0f6b44e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/8c/52/b08750ce0bce45c143e1b5d7357ee8c55341b52bdef4b0f081af1eb248c2/cffi-1.17.1-cp39-cp39-win_amd64.whl", hash = "md5:5bd872933f31daccac02a5be155378d5" },
+]
+
+[[package]]
+name = "cffi"
+version = "2.0.0"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version >= '3.11'",
+    "python_full_version == '3.10.*'",
+]
+dependencies = [
+    { name = "pycparser", version = "3.0", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version >= '3.10' and implementation_name != 'PyPy'" },
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/eb/56/b1ba7935a17738ae8453301356628e8147c79dbb825bcbc73dc7401f9846/cffi-2.0.0.tar.gz", hash = "md5:5e897f6251e614f6bd128a73e81801a4" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/93/d7/516d984057745a6cd96575eea814fe1edd6646ee6efd552fb7b0921dec83/cffi-2.0.0-cp310-cp310-macosx_10_13_x86_64.whl", hash = "md5:f38c21d808faa9835076c34e3dcb7e15" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/9e/84/ad6a0b408daa859246f57c03efd28e5dd1b33c21737c2db84cae8c237aa5/cffi-2.0.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "md5:14019c2379e7cab108b5ee33f596135c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/50/bd/b1a6362b80628111e6653c961f987faa55262b4002fcec42308cad1db680/cffi-2.0.0-cp310-cp310-manylinux1_i686.manylinux2014_i686.manylinux_2_17_i686.manylinux_2_5_i686.whl", hash = "md5:3c2598f1262ec803df61a9335a4670f1" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4f/27/6933a8b2562d7bd1fb595074cf99cc81fc3789f6a6c05cdabb46284a3188/cffi-2.0.0-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "md5:9aae3402f6958638f539265d97909baf" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/05/eb/b86f2a2645b62adcfff53b0dd97e8dfafb5c8aa864bd0d9a2c2049a0d551/cffi-2.0.0-cp310-cp310-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl", hash = "md5:aa78cbe648d6d492031ae80461756c59" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/9f/e0/6cbe77a53acf5acc7c08cc186c9928864bd7c005f9efd0d126884858a5fe/cffi-2.0.0-cp310-cp310-manylinux2014_s390x.manylinux_2_17_s390x.whl", hash = "md5:c18eea0f14e55c1b35c72261b2f9ab28" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/98/29/9b366e70e243eb3d14a5cb488dfd3a0b6b2f1fb001a203f653b93ccfac88/cffi-2.0.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "md5:47a32c27b12c0d41dcc5e9067bc55dd0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/21/7a/13b24e70d2f90a322f2900c5d8e1f14fa7e2a6b3332b7309ba7b2ba51a5a/cffi-2.0.0-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "md5:ebc3a1155cc820b6bdccc4a94db3f030" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/60/99/c9dc110974c59cc981b1f5b66e1d8af8af764e00f0293266824d9c4254bc/cffi-2.0.0-cp310-cp310-musllinux_1_2_i686.whl", hash = "md5:4c290aa7304feffdab81a13685d16af9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/49/72/ff2d12dbf21aca1b32a40ed792ee6b40f6dc3a9cf1644bd7ef6e95e0ac5e/cffi-2.0.0-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "md5:184fe596c7a6e3b8b5bc502765b83084" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e2/cc/027d7fb82e58c48ea717149b03bcadcbdc293553edb283af792bd4bcbb3f/cffi-2.0.0-cp310-cp310-win32.whl", hash = "md5:bbf56de23f0cc1e16fe57183f392943c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/33/fa/072dd15ae27fbb4e06b437eb6e944e75b068deb09e2a2826039e49ee2045/cffi-2.0.0-cp310-cp310-win_amd64.whl", hash = "md5:774f1e56cbf7adaa85efcd1af3c2e644" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/12/4a/3dfd5f7850cbf0d06dc84ba9aa00db766b52ca38d8b86e3a38314d52498c/cffi-2.0.0-cp311-cp311-macosx_10_13_x86_64.whl", hash = "md5:15e9a4b4f9f74e9b466b5f569728d712" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4f/8b/f0e4c441227ba756aafbe78f117485b25bb26b1c059d01f137fa6d14896b/cffi-2.0.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "md5:7836666259a01f80f3276eb077e4b434" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b1/b7/1200d354378ef52ec227395d95c2576330fd22a869f7a70e88e1447eb234/cffi-2.0.0-cp311-cp311-manylinux1_i686.manylinux2014_i686.manylinux_2_17_i686.manylinux_2_5_i686.whl", hash = "md5:8d26c3850f375a6c149d04f88d931b50" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b8/56/6033f5e86e8cc9bb629f0077ba71679508bdf54a9a5e112a3c0b91870332/cffi-2.0.0-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "md5:ed0f2ffd8eb67bfc31d586d5a454645a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/dc/7f/55fecd70f7ece178db2f26128ec41430d8720f2d12ca97bf8f0a628207d5/cffi-2.0.0-cp311-cp311-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl", hash = "md5:4478db30ffa30a7dba63099b2e938484" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/84/ef/a7b77c8bdc0f77adc3b46888f1ad54be8f3b7821697a7b89126e829e676a/cffi-2.0.0-cp311-cp311-manylinux2014_s390x.manylinux_2_17_s390x.whl", hash = "md5:ec013bbf998288a4c185d8634f03fac8" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d7/91/500d892b2bf36529a75b77958edfcd5ad8e2ce4064ce2ecfeab2125d72d1/cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "md5:1e570edbbc7599866f59f63b78bca2d3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/44/64/58f6255b62b101093d5df22dcb752596066c7e89dd725e0afaed242a61be/cffi-2.0.0-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "md5:3174e34879cfa44284011cd0efb47012" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ab/49/fa72cebe2fd8a55fbe14956f9970fe8eb1ac59e5df042f603ef7c8ba0adc/cffi-2.0.0-cp311-cp311-musllinux_1_2_i686.whl", hash = "md5:e8a022d9baea7990663fa84a1aec053d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/0b/28/dd0967a76aab36731b6ebfe64dec4e981aff7e0608f60c2d46b46982607d/cffi-2.0.0-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "md5:9b35c15a2c532c208bc935d37ed549ea" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2b/c0/015b25184413d7ab0a410775fdb4a50fca20f5589b5dab1dbbfa3baad8ce/cffi-2.0.0-cp311-cp311-win32.whl", hash = "md5:2313d2a862213e9cd757f3769338f409" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ae/8f/dc5531155e7070361eb1b7e4c1a9d896d0cb21c49f807a6c03fd63fc877e/cffi-2.0.0-cp311-cp311-win_amd64.whl", hash = "md5:ef26db940624aeeb74441b989783f7d3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/95/5c/1b493356429f9aecfd56bc171285a4c4ac8697f76e9bbbbb105e537853a1/cffi-2.0.0-cp311-cp311-win_arm64.whl", hash = "md5:491285b309bc340bff00d722d3b7f87d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ea/47/4f61023ea636104d4f16ab488e268b93008c3d0bb76893b1b31db1f96802/cffi-2.0.0-cp312-cp312-macosx_10_13_x86_64.whl", hash = "md5:d27b741fea87c7732bb4b83b9b142e20" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/df/a2/781b623f57358e360d62cdd7a8c681f074a71d445418a776eef0aadb4ab4/cffi-2.0.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "md5:304d550415cc2ba8cbd892953aa6e9b0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ff/df/a4f0fbd47331ceeba3d37c2e51e9dfc9722498becbeec2bd8bc856c9538a/cffi-2.0.0-cp312-cp312-manylinux1_i686.manylinux2014_i686.manylinux_2_17_i686.manylinux_2_5_i686.whl", hash = "md5:30045666bcfb6cd6399982e34602b9e4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d5/72/12b5f8d3865bf0f87cf1404d8c374e7487dcf097a1c91c436e72e6badd83/cffi-2.0.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "md5:27d6d05a58afad3f83c2cc535f2ab0ce" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c2/95/7a135d52a50dfa7c882ab0ac17e8dc11cec9d55d2c18dda414c051c5e69e/cffi-2.0.0-cp312-cp312-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl", hash = "md5:85fbe61b8b2000609ff4af6779328c43" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3a/c8/15cb9ada8895957ea171c62dc78ff3e99159ee7adb13c0123c001a2546c1/cffi-2.0.0-cp312-cp312-manylinux2014_s390x.manylinux_2_17_s390x.whl", hash = "md5:2e06b5e8b53ab3c6795653b86a58907d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/78/2d/7fa73dfa841b5ac06c7b8855cfc18622132e365f5b81d02230333ff26e9e/cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "md5:d1211730bf2afffa9c28ea9bdc460769" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/07/e0/267e57e387b4ca276b90f0434ff88b2c2241ad72b16d31836adddfd6031b/cffi-2.0.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "md5:4b34defff6518a27f3ad44f212c3400a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b6/75/1f2747525e06f53efbd878f4d03bac5b859cbc11c633d0fb81432d98a795/cffi-2.0.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "md5:22dc3bf9218b2b45f2980eae627112f1" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/7b/2b/2b6435f76bfeb6bbf055596976da087377ede68df465419d192acf00c437/cffi-2.0.0-cp312-cp312-win32.whl", hash = "md5:728f95524f5763bf49f97c265ec0abe8" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f8/ed/13bd4418627013bec4ed6e54283b1959cf6db888048c7cf4b4c3b5b36002/cffi-2.0.0-cp312-cp312-win_amd64.whl", hash = "md5:9d2aac9c082b46ac957c7d36a21a9f28" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/95/31/9f7f93ad2f8eff1dbc1c3656d7ca5bfd8fb52c9d786b4dcf19b2d02217fa/cffi-2.0.0-cp312-cp312-win_arm64.whl", hash = "md5:aca2e174aed4857c06c0c8cce00f3359" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4b/8d/a0a47a0c9e413a658623d014e91e74a50cdd2c423f7ccfd44086ef767f90/cffi-2.0.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "md5:4dbc4c05c8367d22455a2410de9029fa" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4a/d2/a6c0296814556c68ee32009d9c2ad4f85f2707cdecfd7727951ec228005d/cffi-2.0.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "md5:1a156c9a4dfd86969832e031f956ff69" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b0/1e/d22cc63332bd59b06481ceaac49d6c507598642e2230f201649058a7e704/cffi-2.0.0-cp313-cp313-manylinux1_i686.manylinux2014_i686.manylinux_2_17_i686.manylinux_2_5_i686.whl", hash = "md5:52443d6ebf373b1f832fc07e0df2e8f3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a9/f5/a2c23eb03b61a0b8747f211eb716446c826ad66818ddc7810cc2cc19b3f2/cffi-2.0.0-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "md5:eecf3f20a9cc25a47f654e0ce3981ece" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f2/7f/e6647792fc5850d634695bc0e6ab4111ae88e89981d35ac269956605feba/cffi-2.0.0-cp313-cp313-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl", hash = "md5:6c2fe9e0627dc3dfb69ac9f3ee67a808" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/cb/1e/a5a1bd6f1fb30f22573f76533de12a00bf274abcdc55c8edab639078abb6/cffi-2.0.0-cp313-cp313-manylinux2014_s390x.manylinux_2_17_s390x.whl", hash = "md5:2ad0b54325228505363c7a6536ef5fb8" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/98/df/0a1755e750013a2081e863e7cd37e0cdd02664372c754e5560099eb7aa44/cffi-2.0.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "md5:46c48c8a80e0c29868c77150c85a4c48" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/50/e1/a969e687fcf9ea58e6e2a928ad5e2dd88cc12f6f0ab477e9971f2309b57c/cffi-2.0.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "md5:5d67b66033a3591a89f0da4e1c6bf3b5" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/36/54/0362578dd2c9e557a28ac77698ed67323ed5b9775ca9d3fe73fe191bb5d8/cffi-2.0.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "md5:200eb138226458357003298eb7fcb520" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/eb/6d/bf9bda840d5f1dfdbf0feca87fbdb64a918a69bca42cfa0ba7b137c48cb8/cffi-2.0.0-cp313-cp313-win32.whl", hash = "md5:e60e434b56b5e4cd4af2a7d43f001baf" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/37/18/6519e1ee6f5a1e579e04b9ddb6f1676c17368a7aba48299c3759bbc3c8b3/cffi-2.0.0-cp313-cp313-win_amd64.whl", hash = "md5:7b6c292671a5e7aa571756b6a21aedcc" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/cb/0e/02ceeec9a7d6ee63bb596121c2c8e9b3a9e150936f4fbef6ca1943e6137c/cffi-2.0.0-cp313-cp313-win_arm64.whl", hash = "md5:3c09afa523452047bdc0dce0108145cf" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/92/c4/3ce07396253a83250ee98564f8d7e9789fab8e58858f35d07a9a2c78de9f/cffi-2.0.0-cp314-cp314-macosx_10_13_x86_64.whl", hash = "md5:ca64206a82449b861f173d291f16834c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/59/dd/27e9fa567a23931c838c6b02d0764611c62290062a6d4e8ff7863daf9730/cffi-2.0.0-cp314-cp314-macosx_11_0_arm64.whl", hash = "md5:36c8d9308a055343f8cd7c016ae762b5" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d6/43/0e822876f87ea8a4ef95442c3d766a06a51fc5298823f884ef87aaad168c/cffi-2.0.0-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "md5:198a8656d47bf596c941de2a39e4932f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b4/89/76799151d9c2d2d1ead63c2429da9ea9d7aac304603de0c6e8764e6e8e70/cffi-2.0.0-cp314-cp314-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl", hash = "md5:27a516cf842d81e3ba7136851cf95cd9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/bb/dd/3465b14bb9e24ee24cb88c9e3730f6de63111fffe513492bf8c808a3547e/cffi-2.0.0-cp314-cp314-manylinux2014_s390x.manylinux_2_17_s390x.whl", hash = "md5:6cb8ccc3c12afc1183352957b022ec26" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/47/d9/d83e293854571c877a92da46fdec39158f8d7e68da75bf73581225d28e90/cffi-2.0.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "md5:5b4d34a03a626af3652040a33d174c79" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2b/0f/1f177e3683aead2bb00f7679a16451d302c436b5cbf2505f0ea8146ef59e/cffi-2.0.0-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "md5:7855b4bea2aad4b830f027ee14ab6608" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c6/0f/cafacebd4b040e3119dcb32fed8bdef8dfe94da653155f9d0b9dc660166e/cffi-2.0.0-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "md5:e1db21982264fbaa9b4db929a1a82493" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3e/aa/df335faa45b395396fcbc03de2dfcab242cd61a9900e914fe682a59170b1/cffi-2.0.0-cp314-cp314-win32.whl", hash = "md5:7e17afc9b139a54d5c863cf598f6badf" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/bb/92/882c2d30831744296ce713f0feb4c1cd30f346ef747b530b5318715cc367/cffi-2.0.0-cp314-cp314-win_amd64.whl", hash = "md5:5d2f147c51da96a30b8fe388a44574ff" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/9f/2c/98ece204b9d35a7366b5b2c6539c350313ca13932143e79dc133ba757104/cffi-2.0.0-cp314-cp314-win_arm64.whl", hash = "md5:9a97aff5d486163e2367916371b5fd33" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3e/61/c768e4d548bfa607abcda77423448df8c471f25dbe64fb2ef6d555eae006/cffi-2.0.0-cp314-cp314t-macosx_10_13_x86_64.whl", hash = "md5:8851d2c9fb4054d67557178dc06157de" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2c/ea/5f76bce7cf6fcd0ab1a1058b5af899bfbef198bea4d5686da88471ea0336/cffi-2.0.0-cp314-cp314t-macosx_11_0_arm64.whl", hash = "md5:84c5b0eacdda18c8b7135a671e068cc5" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/be/b4/c56878d0d1755cf9caa54ba71e5d049479c52f9e4afc230f06822162ab2f/cffi-2.0.0-cp314-cp314t-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "md5:9e3fff93f9feb8eb6c0f15a5df7bb034" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e0/0d/eb704606dfe8033e7128df5e90fee946bbcb64a04fcdaa97321309004000/cffi-2.0.0-cp314-cp314t-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl", hash = "md5:fc0794d6254ff6367e021ff45756d6e8" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d8/19/3c435d727b368ca475fb8742ab97c9cb13a0de600ce86f62eab7fa3eea60/cffi-2.0.0-cp314-cp314t-manylinux2014_s390x.manylinux_2_17_s390x.whl", hash = "md5:62ba46baac4a6593727f2eb86b771a9b" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d0/44/681604464ed9541673e486521497406fadcc15b5217c3e326b061696899a/cffi-2.0.0-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "md5:3e89d68cf849f1a28baa3df8d20b2455" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/25/8e/342a504ff018a2825d395d44d63a767dd8ebc927ebda557fecdaca3ac33a/cffi-2.0.0-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "md5:933e3212f81a6869fc6218973050801f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e1/5e/b666bacbbc60fbf415ba9988324a132c9a7a0448a9a8f125074671c0f2c3/cffi-2.0.0-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "md5:6612d8999ac4c4e970daada557518f76" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a0/1d/ec1a60bd1a10daa292d3cd6bb0b359a81607154fb8165f3ec95fe003b85c/cffi-2.0.0-cp314-cp314t-win32.whl", hash = "md5:1c85fea7df353165511f0e30cecc7538" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/bf/41/4c1168c74fac325c0c8156f04b6749c8b6a8f405bbf91413ba088359f60d/cffi-2.0.0-cp314-cp314t-win_amd64.whl", hash = "md5:dfe7f3dbdf13150e2434b45bfc7c1830" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ae/3a/dbeec9d1ee0844c679f6bb5d6ad4e9f198b1224f4e7a32825f47f6192b0c/cffi-2.0.0-cp314-cp314t-win_arm64.whl", hash = "md5:4498d58516c32853b621176912546c05" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c0/cc/08ed5a43f2996a16b462f64a7055c6e962803534924b9b2f1371d8c00b7b/cffi-2.0.0-cp39-cp39-macosx_10_13_x86_64.whl", hash = "md5:ea32e76c026c290c284bdab72faede81" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3d/de/38d9726324e127f727b4ecc376bc85e505bfe61ef130eaf3f290c6847dd4/cffi-2.0.0-cp39-cp39-macosx_11_0_arm64.whl", hash = "md5:fd6f6286123a434086c11067bd9e8a39" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/9b/13/c92e36358fbcc39cf0962e83223c9522154ee8630e1df7c0b3a39a8124e2/cffi-2.0.0-cp39-cp39-manylinux1_i686.manylinux2014_i686.manylinux_2_17_i686.manylinux_2_5_i686.whl", hash = "md5:f37c243d574e49541fe084854bf6d7dc" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/15/12/a7a79bd0df4c3bff744b2d7e52cc1b68d5e7e427b384252c42366dc1ecbc/cffi-2.0.0-cp39-cp39-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "md5:1bb24af4f065a74a042ff65c8b06569c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a3/ad/5c51c1c7600bdd7ed9a24a203ec255dccdd0ebf4527f7b922a0bde2fb6ed/cffi-2.0.0-cp39-cp39-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl", hash = "md5:6e79c1d0a884d11d6a9b91c65f1d1b84" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/32/f2/81b63e288295928739d715d00952c8c6034cb6c6a516b17d37e0c8be5600/cffi-2.0.0-cp39-cp39-manylinux2014_s390x.manylinux_2_17_s390x.whl", hash = "md5:1d18742890e5e99bd01f2c899d8a92f9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1f/74/cc4096ce66f5939042ae094e2e96f53426a979864aa1f96a621ad128be27/cffi-2.0.0-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "md5:d258268963a8a9a790c8f20d4b8e201f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e8/be/f6424d1dc46b1091ffcc8964fa7c0ab0cd36839dd2761b49c90481a6ba1b/cffi-2.0.0-cp39-cp39-musllinux_1_2_aarch64.whl", hash = "md5:efff1dad6ef72abe9bd5036c1841ae36" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f7/e0/dda537c2309817edf60109e39265f24f24aa7f050767e22c98c53fe7f48b/cffi-2.0.0-cp39-cp39-musllinux_1_2_i686.whl", hash = "md5:2133310862e8ca74d6e0c4b5dbe524d5" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2b/e7/7c769804eb75e4c4b35e658dba01de1640a351a9653c3d49ca89d16ccc91/cffi-2.0.0-cp39-cp39-musllinux_1_2_x86_64.whl", hash = "md5:4c103586b1c2fa4bebbe018badb96886" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/aa/d9/6218d78f920dcd7507fc16a766b5ef8f3b913cc7aa938e7fc80b9978d089/cffi-2.0.0-cp39-cp39-win32.whl", hash = "md5:8eb85a55c4a8f44d423cfde717a41f53" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/54/8f/a1e836f82d8e32a97e6b29cc8f641779181ac7363734f12df27db803ebda/cffi-2.0.0-cp39-cp39-win_amd64.whl", hash = "md5:6a2540993f719e07993a50423fed39a5" },
+]
+
+[[package]]
+name = "charset-normalizer"
+version = "3.4.4"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz", hash = "md5:3c73a3c5c05a896c1169d8b5298dc4e5" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1f/b8/6d51fc1d52cbd52cd4ccedd5b5b2f0f6a11bbf6765c782298b0f3e808541/charset_normalizer-3.4.4-cp310-cp310-macosx_10_9_universal2.whl", hash = "md5:b75a493852d29f306d4955366ec37c25" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/5c/af/1f9d7f7faafe2ddfb6f72a2e07a548a629c61ad510fe60f9630309908fef/charset_normalizer-3.4.4-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:fb3c7e4578cb8d13402fa002075d0e4a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/79/3d/f2e3ac2bbc056ca0c204298ea4e3d9db9b4afe437812638759db2c976b5f/charset_normalizer-3.4.4-cp310-cp310-manylinux2014_armv7l.manylinux_2_17_armv7l.manylinux_2_31_armv7l.whl", hash = "md5:fd33ae31948fe591d1f74dedb79a2989" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ec/85/1bf997003815e60d57de7bd972c57dc6950446a3e4ccac43bc3070721856/charset_normalizer-3.4.4-cp310-cp310-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "md5:024e8481fc6ea87e45149eadfef027f5" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3e/8e/6aa1952f56b192f54921c436b87f2aaf7c7a7c3d0d1a765547d64fd83c13/charset_normalizer-3.4.4-cp310-cp310-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "md5:f886e015f23c8a7b27da90bd5e6ebfa5" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/36/3b/60cbd1f8e93aa25d1c669c649b7a655b0b5fb4c571858910ea9332678558/charset_normalizer-3.4.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:f00a1f727484ad4619652e1c35168e98" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/64/91/6a13396948b8fd3c4b4fd5bc74d045f5637d78c9675585e8e9fbe5636554/charset_normalizer-3.4.4-cp310-cp310-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "md5:d6749aa96285b34e7f33f6c2b3c62fd7" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b7/7a/59482e28b9981d105691e968c544cc0df3b7d6133152fb3dcdc8f135da7a/charset_normalizer-3.4.4-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "md5:f2cee042591b11be74497d9332d219d2" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/92/59/f64ef6a1c4bdd2baf892b04cd78792ed8684fbc48d4c2afe467d96b4df57/charset_normalizer-3.4.4-cp310-cp310-musllinux_1_2_armv7l.whl", hash = "md5:c49b55cc541c11cd22dd374b11282d9e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/6b/63/3bf9f279ddfa641ffa1962b0db6a57a9c294361cc2f5fcac997049a00e9c/charset_normalizer-3.4.4-cp310-cp310-musllinux_1_2_ppc64le.whl", hash = "md5:a00241d7c3761ba083e4fea7413cdaa4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ed/09/c9e38fc8fa9e0849b172b581fd9803bdf6e694041127933934184e19f8c3/charset_normalizer-3.4.4-cp310-cp310-musllinux_1_2_riscv64.whl", hash = "md5:7a2fb92f5a6567a5d1e3de44d64b010b" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d2/d1/d28b747e512d0da79d8b6a1ac18b7ab2ecfd81b2944c4c710e166d8dd09c/charset_normalizer-3.4.4-cp310-cp310-musllinux_1_2_s390x.whl", hash = "md5:4410160ac593b3357b2101d773a66d59" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/bb/9a/31d62b611d901c3b9e5500c36aab0ff5eb442043fb3a1c254200d3d397d9/charset_normalizer-3.4.4-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "md5:4501429253d286e0f380df8b020d2fb4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1f/f3/107e008fa2bff0c8b9319584174418e5e5285fef32f79d8ee6a430d0039c/charset_normalizer-3.4.4-cp310-cp310-win32.whl", hash = "md5:de3646ba4410ecf36694743acc35cd48" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/eb/66/e396e8a408843337d7315bab30dbf106c38966f1819f123257f5520f8a96/charset_normalizer-3.4.4-cp310-cp310-win_amd64.whl", hash = "md5:a1443f0250a466f1c1f18b57196cc716" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b5/58/01b4f815bf0312704c267f2ccb6e5d42bcc7752340cd487bc9f8c3710597/charset_normalizer-3.4.4-cp310-cp310-win_arm64.whl", hash = "md5:669a95899870c61c7f0970c51f6b8ece" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ed/27/c6491ff4954e58a10f69ad90aca8a1b6fe9c5d3c6f380907af3c37435b59/charset_normalizer-3.4.4-cp311-cp311-macosx_10_9_universal2.whl", hash = "md5:2a5987d29243c5fa13200f67f9ec9b71" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/94/59/2e87300fe67ab820b5428580a53cad894272dbb97f38a7a814a2a1ac1011/charset_normalizer-3.4.4-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:d5a25201ff165be4ea3fbcaa4c4cd19e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/07/fb/0cf61dc84b2b088391830f6274cb57c82e4da8bbc2efeac8c025edb88772/charset_normalizer-3.4.4-cp311-cp311-manylinux2014_armv7l.manylinux_2_17_armv7l.manylinux_2_31_armv7l.whl", hash = "md5:64a486d8b7cb375e90a2fb81943e6ddf" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/62/8b/171935adf2312cd745d290ed93cf16cf0dfe320863ab7cbeeae1dcd6535f/charset_normalizer-3.4.4-cp311-cp311-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "md5:00cb95ca4ef147eea8e99a001f449c3e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/09/73/ad875b192bda14f2173bfc1bc9a55e009808484a4b256748d931b6948442/charset_normalizer-3.4.4-cp311-cp311-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "md5:4aa173be21574cf5f5078f998008cb75" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/6d/fc/de9cce525b2c5b94b47c70a4b4fb19f871b24995c728e957ee68ab1671ea/charset_normalizer-3.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:18fb981b767fb211dfcb9bd77fae0fe7" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/55/c2/43edd615fdfba8c6f2dfbd459b25a6b3b551f24ea21981e23fb768503ce1/charset_normalizer-3.4.4-cp311-cp311-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "md5:09b4a2c8c20504128dbb748a0de1b8fe" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/03/86/bde4ad8b4d0e9429a4e82c1e8f5c659993a9a863ad62c7df05cf7b678d75/charset_normalizer-3.4.4-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "md5:7ca135818e8e6c71798160b3bcb5fc63" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1f/86/a151eb2af293a7e7bac3a739b81072585ce36ccfb4493039f49f1d3cae8c/charset_normalizer-3.4.4-cp311-cp311-musllinux_1_2_armv7l.whl", hash = "md5:93452c0bb141b21101ad9a83f37d18e9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b5/fe/43dae6144a7e07b87478fdfc4dbe9efd5defb0e7ec29f5f58a55aeef7bf7/charset_normalizer-3.4.4-cp311-cp311-musllinux_1_2_ppc64le.whl", hash = "md5:97ac608f1726cee0f48cc1cedd6512a6" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/80/e6/7aab83774f5d2bca81f42ac58d04caf44f0cc2b65fc6db2b3b2e8a05f3b3/charset_normalizer-3.4.4-cp311-cp311-musllinux_1_2_riscv64.whl", hash = "md5:f2e91764482cb98bc4c61901332831f7" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4f/e8/b289173b4edae05c0dde07f69f8db476a0b511eac556dfe0d6bda3c43384/charset_normalizer-3.4.4-cp311-cp311-musllinux_1_2_s390x.whl", hash = "md5:cbaca8357a382d3b5eb90213e2cce7e9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d8/df/fe699727754cae3f8478493c7f45f777b17c3ef0600e28abfec8619eb49c/charset_normalizer-3.4.4-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "md5:72ed24db1f5bf8464ac8561306efbc99" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1a/86/584869fe4ddb6ffa3bd9f491b87a01568797fb9bd8933f557dba9771beaf/charset_normalizer-3.4.4-cp311-cp311-win32.whl", hash = "md5:346dfd5dfeb2ea531be0e9227350205a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/65/f6/62fdd5feb60530f50f7e38b4f6a1d5203f4d16ff4f9f0952962c044e919a/charset_normalizer-3.4.4-cp311-cp311-win_amd64.whl", hash = "md5:06ec263a1f448e40e76328ec2f2ab7d9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/7a/9d/0710916e6c82948b3be62d9d398cb4fcf4e97b56d6a6aeccd66c4b2f2bd5/charset_normalizer-3.4.4-cp311-cp311-win_arm64.whl", hash = "md5:617c590c29bcb131cbd9889160b8cb05" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f3/85/1637cd4af66fa687396e757dec650f28025f2a2f5a5531a3208dc0ec43f2/charset_normalizer-3.4.4-cp312-cp312-macosx_10_13_universal2.whl", hash = "md5:e9cc222fc23e4d93ae8ad2c0907584c9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/9d/6a/04130023fef2a0d9c62d0bae2649b69f7b7d8d24ea5536feef50551029df/charset_normalizer-3.4.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:0326ec92f7e5f126ad510fd274c7a2d0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/78/29/62328d79aa60da22c9e0b9a66539feae06ca0f5a4171ac4f7dc285b83688/charset_normalizer-3.4.4-cp312-cp312-manylinux2014_armv7l.manylinux_2_17_armv7l.manylinux_2_31_armv7l.whl", hash = "md5:b27007a2a09e4116caf00d8e740fd87e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/86/bb/b32194a4bf15b88403537c2e120b817c61cd4ecffa9b6876e941c3ee38fe/charset_normalizer-3.4.4-cp312-cp312-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "md5:2c5935bd302e0a0eaa059eb6fb521049" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/19/89/a54c82b253d5b9b111dc74aca196ba5ccfcca8242d0fb64146d4d3183ff1/charset_normalizer-3.4.4-cp312-cp312-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "md5:4592d03686b061bf93d13020418c1622" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c0/10/d20b513afe03acc89ec33948320a5544d31f21b05368436d580dec4e234d/charset_normalizer-3.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:f00ca4aee2c96bf920fb233ddf280dfd" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/61/fa/fbf177b55bdd727010f9c0a3c49eefa1d10f960e5f09d1d887bf93c2e698/charset_normalizer-3.4.4-cp312-cp312-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "md5:d413c2ca99486a855fad55005f1de5ad" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/05/12/9fbc6a4d39c0198adeebbde20b619790e9236557ca59fc40e0e3cebe6f40/charset_normalizer-3.4.4-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "md5:0b3c0be6a1d5bc627b73cc8bbaf01ecb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ad/1f/6a9a593d52e3e8c5d2b167daf8c6b968808efb57ef4c210acb907c365bc4/charset_normalizer-3.4.4-cp312-cp312-musllinux_1_2_armv7l.whl", hash = "md5:c77b10043792cec17081fed3bc54d75c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/30/42/9a52c609e72471b0fc54386dc63c3781a387bb4fe61c20231a4ebcd58bdd/charset_normalizer-3.4.4-cp312-cp312-musllinux_1_2_ppc64le.whl", hash = "md5:3ced2e7e46dabef8ac6d34dad6da1d17" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c4/5b/c0682bbf9f11597073052628ddd38344a3d673fda35a36773f7d19344b23/charset_normalizer-3.4.4-cp312-cp312-musllinux_1_2_riscv64.whl", hash = "md5:9465642112811beb0be2b5ac5dd2a011" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e4/24/a41afeab6f990cf2daf6cb8c67419b63b48cf518e4f56022230840c9bfb2/charset_normalizer-3.4.4-cp312-cp312-musllinux_1_2_s390x.whl", hash = "md5:0f169d1e116d6db2f18da74d1a21800c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2a/e5/6a4ce77ed243c4a50a1fecca6aaaab419628c818a49434be428fe24c9957/charset_normalizer-3.4.4-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "md5:199853d9d316cca6e804a7e046072ecf" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a8/ef/89297262b8092b312d29cdb2517cb1237e51db8ecef2e9af5edbe7b683b1/charset_normalizer-3.4.4-cp312-cp312-win32.whl", hash = "md5:4ac2c2e80abdb2f9f5abac9a74f8d9fb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3d/2d/1e5ed9dd3b3803994c155cd9aacb60c82c331bad84daf75bcb9c91b3295e/charset_normalizer-3.4.4-cp312-cp312-win_amd64.whl", hash = "md5:bd35069c8c20f01bc0af909ecbd237f7" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d0/d9/0ed4c7098a861482a7b6a95603edce4c0d9db2311af23da1fb2b75ec26fc/charset_normalizer-3.4.4-cp312-cp312-win_arm64.whl", hash = "md5:7d7452e4f734a9f3889d0e3f83749a60" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/97/45/4b3a1239bbacd321068ea6e7ac28875b03ab8bc0aa0966452db17cd36714/charset_normalizer-3.4.4-cp313-cp313-macosx_10_13_universal2.whl", hash = "md5:2d212865e7455e1c17dd4d29be6dfa1b" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/7d/62/73a6d7450829655a35bb88a88fca7d736f9882a27eacdca2c6d505b57e2e/charset_normalizer-3.4.4-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:7bcd6497a783e76f52ba4cf7af172c3c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/89/c5/adb8c8b3d6625bef6d88b251bbb0d95f8205831b987631ab0c8bb5d937c2/charset_normalizer-3.4.4-cp313-cp313-manylinux2014_armv7l.manylinux_2_17_armv7l.manylinux_2_31_armv7l.whl", hash = "md5:9762b2472430893adb37154c64713911" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/91/ed/9706e4070682d1cc219050b6048bfd293ccf67b3d4f5a4f39207453d4b99/charset_normalizer-3.4.4-cp313-cp313-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "md5:f695e9ed92301b38d9247525f882cd87" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d5/0d/031f0d95e4972901a2f6f09ef055751805ff541511dc1252ba3ca1f80cf5/charset_normalizer-3.4.4-cp313-cp313-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "md5:1343dce9e353a948cdd0072754a829f1" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f5/83/6ab5883f57c9c801ce5e5677242328aa45592be8a00644310a008d04f922/charset_normalizer-3.4.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:7b1f72501801524d427ef249dc5b030d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/75/1e/5ff781ddf5260e387d6419959ee89ef13878229732732ee73cdae01800f2/charset_normalizer-3.4.4-cp313-cp313-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "md5:a1f1a121b1e32de96c5bd061f4340628" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d7/57/71be810965493d3510a6ca79b90c19e48696fb1ff964da319334b12677f0/charset_normalizer-3.4.4-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "md5:cca06e65713c7fcce73dee0cb65056f8" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e5/d5/c3d057a78c181d007014feb7e9f2e65905a6c4ef182c0ddf0de2924edd65/charset_normalizer-3.4.4-cp313-cp313-musllinux_1_2_armv7l.whl", hash = "md5:8ff1d50f95ab137a46019e561debeafa" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e6/8c/d0406294828d4976f275ffbe66f00266c4b3136b7506941d87c00cab5272/charset_normalizer-3.4.4-cp313-cp313-musllinux_1_2_ppc64le.whl", hash = "md5:26bebd46c66c9e47c8548856a3f87d03" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d7/24/e2aa1f18c8f15c4c0e932d9287b8609dd30ad56dbe41d926bd846e22fb8d/charset_normalizer-3.4.4-cp313-cp313-musllinux_1_2_riscv64.whl", hash = "md5:c19acecc8fd2509e0c5245b72eb55851" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e4/5b/1e6160c7739aad1e2df054300cc618b06bf784a7a164b0f238360721ab86/charset_normalizer-3.4.4-cp313-cp313-musllinux_1_2_s390x.whl", hash = "md5:1bdd9d04ca8a2d8df2fae974b9fee2f4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/7a/10/f882167cd207fbdd743e55534d5d9620e095089d176d55cb22d5322f2afd/charset_normalizer-3.4.4-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "md5:96abef4aff3536161f9f32ddbd80ec54" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/89/66/c7a9e1b7429be72123441bfdbaf2bc13faab3f90b933f664db506dea5915/charset_normalizer-3.4.4-cp313-cp313-win32.whl", hash = "md5:a5b430ab93e3c32e1246c5adcd5c6a12" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c4/26/b9924fa27db384bdcd97ab83b4f0a8058d96ad9626ead570674d5e737d90/charset_normalizer-3.4.4-cp313-cp313-win_amd64.whl", hash = "md5:be2ed6de3382c4d025e02f7e868819f0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/af/8f/3ed4bfa0c0c72a7ca17f0380cd9e4dd842b09f664e780c13cff1dcf2ef1b/charset_normalizer-3.4.4-cp313-cp313-win_arm64.whl", hash = "md5:791e341a812d84c05c732f0d27b1241a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2a/35/7051599bd493e62411d6ede36fd5af83a38f37c4767b92884df7301db25d/charset_normalizer-3.4.4-cp314-cp314-macosx_10_13_universal2.whl", hash = "md5:8667d1b9983618787041072b167a5da6" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/10/9a/97c8d48ef10d6cd4fcead2415523221624bf58bcf68a802721a6bc807c8f/charset_normalizer-3.4.4-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:2eee9bbab38d8cde8b10f05308328a6c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/10/bf/979224a919a1b606c82bd2c5fa49b5c6d5727aa47b4312bb27b1734f53cd/charset_normalizer-3.4.4-cp314-cp314-manylinux2014_armv7l.manylinux_2_17_armv7l.manylinux_2_31_armv7l.whl", hash = "md5:b203885d09748d8d8507e697790fd7e3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ba/33/0ad65587441fc730dc7bd90e9716b30b4702dc7b617e6ba4997dc8651495/charset_normalizer-3.4.4-cp314-cp314-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "md5:01bbb8ebfbc99accb553da9c4e87020e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/67/ed/331d6b249259ee71ddea93f6f2f0a56cfebd46938bde6fcc6f7b9a3d0e09/charset_normalizer-3.4.4-cp314-cp314-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "md5:965bd6ce068263290fbb5d1ccc951cea" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/67/ff/f6b948ca32e4f2a4576aa129d8bed61f2e0543bf9f5f2b7fc3758ed005c9/charset_normalizer-3.4.4-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:521d589431cdbe2823bac3da41c2f526" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/16/85/276033dcbcc369eb176594de22728541a925b2632f9716428c851b149e83/charset_normalizer-3.4.4-cp314-cp314-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "md5:722e688ffcc4b706b1270ca261274593" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/9e/f2/6a2a1f722b6aba37050e626530a46a68f74e63683947a8acff92569f979a/charset_normalizer-3.4.4-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "md5:16d55132a574308910ff5e9b3eeca1d0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/60/bb/2186cb2f2bbaea6338cad15ce23a67f9b0672929744381e28b0592676824/charset_normalizer-3.4.4-cp314-cp314-musllinux_1_2_armv7l.whl", hash = "md5:1853bc4554653b6e27cab389e79266b0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/7d/a5/bf6f13b772fbb2a90360eb620d52ed8f796f3c5caee8398c3b2eb7b1c60d/charset_normalizer-3.4.4-cp314-cp314-musllinux_1_2_ppc64le.whl", hash = "md5:c95334b4a6f71c939059834532d72c7e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/df/c5/d1be898bf0dc3ef9030c3825e5d3b83f2c528d207d246cbabe245966808d/charset_normalizer-3.4.4-cp314-cp314-musllinux_1_2_riscv64.whl", hash = "md5:14d3ab3d4c70bf70acc69c5cb2130a73" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a5/42/90c1f7b9341eef50c8a1cb3f098ac43b0508413f33affd762855f67a410e/charset_normalizer-3.4.4-cp314-cp314-musllinux_1_2_s390x.whl", hash = "md5:fdef154ef15078342b0d42ac9fd39713" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/76/be/4d3ee471e8145d12795ab655ece37baed0929462a86e72372fd25859047c/charset_normalizer-3.4.4-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "md5:045518aa4e03d9cf2d1a28ed32303e3f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b0/6f/8f7af07237c34a1defe7defc565a9bc1807762f672c0fde711a4b22bf9c0/charset_normalizer-3.4.4-cp314-cp314-win32.whl", hash = "md5:20f91e8c90a145bb769eab0e7c4b6282" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4b/51/8ade005e5ca5b0d80fb4aff72a3775b325bdc3d27408c8113811a7cbe640/charset_normalizer-3.4.4-cp314-cp314-win_amd64.whl", hash = "md5:d5709674a7e9edba52b6ca7faada7187" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/da/5f/6b8f83a55bb8278772c5ae54a577f3099025f9ade59d0136ac24a0df4bde/charset_normalizer-3.4.4-cp314-cp314-win_arm64.whl", hash = "md5:51cdd82ff7766c884997edc4f39eb5c0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/0a/4e/3926a1c11f0433791985727965263f788af00db3482d89a7545ca5ecc921/charset_normalizer-3.4.4-cp38-cp38-macosx_10_9_universal2.whl", hash = "md5:f08b90f5ad02f7dea88bc3c76ffe13fa" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ec/7c/b92d1d1dcffc34592e71ea19c882b6709e43d20fa498042dea8b815638d7/charset_normalizer-3.4.4-cp38-cp38-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:96afbc3b85b3704f2d6a1fb4d72d2b9e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/84/ce/61a28d3bb77281eb24107b937a497f3c43089326d27832a63dcedaab0478/charset_normalizer-3.4.4-cp38-cp38-manylinux2014_armv7l.manylinux_2_17_armv7l.manylinux_2_31_armv7l.whl", hash = "md5:4da3c88ce241f75baf4ed4dda65b357d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c0/bd/c9e59a91b2061c6f8bb98a150670cb16d4cd7c4ba7d11ad0cdf789155f41/charset_normalizer-3.4.4-cp38-cp38-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "md5:83d79afa2a3188a48515bfb6cbb2a771" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/bf/37/f17ae176a80f22ff823456af91ba3bc59df308154ff53aef0d39eb3d3419/charset_normalizer-3.4.4-cp38-cp38-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "md5:6f0e1ef6adeda4d31dbe39f0a9089dbb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/bf/fa/cf5bb2409a385f78750e78c8d2e24780964976acdaaed65dbd6083ae5b40/charset_normalizer-3.4.4-cp38-cp38-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:b78051865d52a518d2b264f897b25290" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/9b/63/579784a65bc7de2d4518d40bb8f1870900163e86f17f21fd1384318c459d/charset_normalizer-3.4.4-cp38-cp38-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "md5:46c7da51133f68cc391b19faebc0a24c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a3/a9/94ec6266cd394e8f93a4d69cca651d61bf6ac58d2a0422163b30c698f2c7/charset_normalizer-3.4.4-cp38-cp38-musllinux_1_2_aarch64.whl", hash = "md5:2e85ca4fa674ec1f077865cf7b8712da" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/09/14/d6626eb97764b58c2779fa7928fa7d1a49adb8ce687c2dbba4db003c1939/charset_normalizer-3.4.4-cp38-cp38-musllinux_1_2_armv7l.whl", hash = "md5:d34a6a5bf9733c6b2766cba6a05d32e5" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/09/01/ddbe6b01313ba191dbb0a43c7563bc770f2448c18127f9ea4b119c44dff0/charset_normalizer-3.4.4-cp38-cp38-musllinux_1_2_ppc64le.whl", hash = "md5:72a6fa5aab499b0b8680d2f92ecce635" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/95/c8/d05543378bea89296e9af4510b44c704626e191da447235c8fdedfc5b7b2/charset_normalizer-3.4.4-cp38-cp38-musllinux_1_2_riscv64.whl", hash = "md5:7f29b1c24d6822868a4b97a95d20ffb4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/72/01/2866c4377998ef8a1f6802f6431e774a4c8ebe75b0a6e569ceec55c9cbfb/charset_normalizer-3.4.4-cp38-cp38-musllinux_1_2_s390x.whl", hash = "md5:1e19221a89821588a039a340f555f599" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4a/66/66c72468a737b4cbd7851ba2c522fe35c600575fbeac944460b4fd4a06fe/charset_normalizer-3.4.4-cp38-cp38-musllinux_1_2_x86_64.whl", hash = "md5:569a2ff9f817a82831ae9b5d30804499" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/50/94/d0d56677fdddbffa8ca00ec411f67bb8c947f9876374ddc9d160d4f2c4b3/charset_normalizer-3.4.4-cp38-cp38-win32.whl", hash = "md5:ebf3fdffd6425ca38d224512ae6de8d3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/00/64/c3bc303d1b586480b1c8e6e1e2191a6d6dd40255244e5cf16763dcec52e6/charset_normalizer-3.4.4-cp38-cp38-win_amd64.whl", hash = "md5:a438b2ee6d4bb485fe8dfe48f6bcdcef" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/46/7c/0c4760bccf082737ca7ab84a4c2034fcc06b1f21cf3032ea98bd6feb1725/charset_normalizer-3.4.4-cp39-cp39-macosx_10_9_universal2.whl", hash = "md5:5bfcd11d6006c0aed211203a886e3582" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/bb/a4/69719daef2f3d7f1819de60c9a6be981b8eeead7542d5ec4440f3c80e111/charset_normalizer-3.4.4-cp39-cp39-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:454f118fecdd4593c88ff1eadd339500" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e6/21/8d4e1d6c1e6070d3672908b8e4533a71b5b53e71d16828cc24d0efec564c/charset_normalizer-3.4.4-cp39-cp39-manylinux2014_armv7l.manylinux_2_17_armv7l.manylinux_2_31_armv7l.whl", hash = "md5:69ef54f5629200b0442d2b90db99ea75" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a7/0a/a616d001b3f25647a9068e0b9199f697ce507ec898cacb06a0d5a1617c99/charset_normalizer-3.4.4-cp39-cp39-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "md5:682c8a5658a7f56cc80586d0ecb888ee" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/85/93/060b52deb249a5450460e0585c88a904a83aec474ab8e7aba787f45e79f2/charset_normalizer-3.4.4-cp39-cp39-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "md5:9a8043d5b4ce910468034fb87ee162db" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/dd/21/0274deb1cc0632cd587a9a0ec6b4674d9108e461cb4cd40d457adaeb0564/charset_normalizer-3.4.4-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:169cf9a60fe2a5907c07baf0688e0859" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/28/2b/e3d7d982858dccc11b31906976323d790dded2017a0572f093ff982d692f/charset_normalizer-3.4.4-cp39-cp39-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "md5:fd8b97f017396785ae9a80bf8d6ff219" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/6e/ff/4a269f8e35f1e58b2df52c131a1fa019acb7ef3f8697b7d464b07e9b492d/charset_normalizer-3.4.4-cp39-cp39-musllinux_1_2_aarch64.whl", hash = "md5:6da2d7b145744fdb54b4fbd66e1c6191" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/da/c9/ec39870f0b330d58486001dd8e532c6b9a905f5765f58a6f8204926b4a93/charset_normalizer-3.4.4-cp39-cp39-musllinux_1_2_armv7l.whl", hash = "md5:a7f1e3e390448345317b3f1c815e2232" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/75/8f/d186ab99e40e0ed9f82f033d6e49001701c81244d01905dd4a6924191a30/charset_normalizer-3.4.4-cp39-cp39-musllinux_1_2_ppc64le.whl", hash = "md5:fa3bd3af153813d40a51d07c3b4eabae" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/96/b1/6047663b9744df26a7e479ac1e77af7134b1fcf9026243bb48ee2d18810f/charset_normalizer-3.4.4-cp39-cp39-musllinux_1_2_riscv64.whl", hash = "md5:43975f5b68d61067f89fe0afe67b672a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/59/78/e5a6eac9179f24f704d1be67d08704c3c6ab9f00963963524be27c18ed87/charset_normalizer-3.4.4-cp39-cp39-musllinux_1_2_s390x.whl", hash = "md5:6c71158fd494ef1a4c0ccac3fdf0fcdc" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e5/43/0e626e42d54dd2f8dd6fc5e1c5ff00f05fbca17cb699bedead2cae69c62f/charset_normalizer-3.4.4-cp39-cp39-musllinux_1_2_x86_64.whl", hash = "md5:cda7dd960aa76d7f168fee0b55f57aba" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e9/91/d9615bf2e06f35e4997616ff31248c3657ed649c5ab9d35ea12fce54e380/charset_normalizer-3.4.4-cp39-cp39-win32.whl", hash = "md5:71b26212a546f94c27947990a772504a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d1/a9/6c040053909d9d1ef4fcab45fddec083aedc9052c10078339b47c8573ea8/charset_normalizer-3.4.4-cp39-cp39-win_amd64.whl", hash = "md5:188cafea2ed4b30f615967a4018cdff4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f0/c6/4fa536b2c0cd3edfb7ccf8469fa0f363ea67b7213a842b90909ca33dd851/charset_normalizer-3.4.4-cp39-cp39-win_arm64.whl", hash = "md5:ad26b1f5ed0ac3fb66ddaa37742397e9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/0a/4c/925909008ed5a988ccbb72dcc897407e5d6d3bd72410d69e051fc0c14647/charset_normalizer-3.4.4-py3-none-any.whl", hash = "md5:a425e0aabe24dde0df1bc1eaca464c5b" },
+]
+
+[[package]]
+name = "colorama"
+version = "0.4.6"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz", hash = "md5:11fe1cbf8299798551ac88f824ea11c4" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl", hash = "md5:3fc7a89530d68d7ea231ebe779c0db9c" },
+]
+
+[[package]]
+name = "exceptiongroup"
+version = "1.3.1"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+dependencies = [
+    { name = "typing-extensions", version = "4.13.2", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version < '3.10'" },
+    { name = "typing-extensions", version = "4.15.0", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version == '3.10.*'" },
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/50/79/66800aadf48771f6b62f7eb014e352e5d06856655206165d775e675a02c9/exceptiongroup-1.3.1.tar.gz", hash = "md5:f88685ec75c5715111d65aeae28c9322" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/8a/0e/97c33bf5009bdbac74fd2beace167cab3f978feb69cc36f1ef79360d6c4e/exceptiongroup-1.3.1-py3-none-any.whl", hash = "md5:ae266455b7797174f2d91304ccaf1275" },
+]
+
+[[package]]
+name = "idna"
+version = "3.11"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz", hash = "md5:9a9c33db960e0d35cc5b257c37dabeff" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/0e/61/66938bbb5fc52dbdf84594873d5b51fb1f7c7794e9c0f5bd885f30bc507b/idna-3.11-py3-none-any.whl", hash = "md5:9a707ac0a65f018883cff8e82f48314e" },
+]
+
+[[package]]
+name = "iniconfig"
+version = "2.1.0"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version < '3.10'",
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/f2/97/ebf4da567aa6827c909642694d71c9fcf53e5b504f2d96afea02718862f3/iniconfig-2.1.0.tar.gz", hash = "md5:437ede5b20b0ab2e76ca08f02b5c49dd" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2c/e1/e6716421ea10d38022b952c159d5161ca1193197fb744506875fbb87ea7b/iniconfig-2.1.0-py3-none-any.whl", hash = "md5:a3addcf2db108b0a2fd70a26e2504f22" },
+]
+
+[[package]]
+name = "iniconfig"
+version = "2.3.0"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version >= '3.11'",
+    "python_full_version == '3.10.*'",
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/72/34/14ca021ce8e5dfedc35312d08ba8bf51fdd999c576889fc2c24cb97f4f10/iniconfig-2.3.0.tar.gz", hash = "md5:5c1d9c21275feb3da71400bf716edd72" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/cb/b1/3846dd7f199d53cb17f49cba7e651e9ce294d8497c8c150530ed11865bb8/iniconfig-2.3.0-py3-none-any.whl", hash = "md5:d3e156a9abd59ac8b5eb0c2e8b1c5dad" },
+]
+
+[[package]]
+name = "miniaudio"
+version = "1.61"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+dependencies = [
+    { name = "cffi", version = "1.17.1", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version < '3.10'" },
+    { name = "cffi", version = "2.0.0", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version >= '3.10'" },
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/55/fa/96d4cc7ada283357117f7890418ac065a0a6d81ec59e681cd965a403aba3/miniaudio-1.61.tar.gz", hash = "md5:8288863427359f61eef254ac8bdf883d" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/87/71/0049137126f4544543855d38836bd22c56907b486d279d93efd6ef91045d/miniaudio-1.61-cp310-cp310-macosx_10_9_x86_64.whl", hash = "md5:c45d7ec68c198bfa91c1fb20b5176d81" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/8c/a8/d1802c441cb503f8eb11576b15f9895fe37c1838d661aea3929f15f70e4b/miniaudio-1.61-cp310-cp310-macosx_11_0_arm64.whl", hash = "md5:da7f29e738f23565d9e6dec2bf99aa81" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c5/fe/9230e69a1b013b046a002297a04893ce1f20461590ebba0b3b7fdb137921/miniaudio-1.61-cp310-cp310-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:7b2d2f205ad9c423e691bede8bcc3a63" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e0/2c/1a3ad53080eebf0f331d3fd7db20e073bf2a02186bd13585f5ae0be2e2e5/miniaudio-1.61-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:ab13d1691f1024602dc9437537f59832" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/84/05/03f5b6e6950e877416069261f237b4a0f56b465c46379889f376a7625b4f/miniaudio-1.61-cp310-cp310-musllinux_1_2_i686.whl", hash = "md5:5dec69faf77bd5a951c44012df8bf9a1" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/30/89/d5ef9687c86e5c0812a25b92ed331330950754f2225800dee78682baedfd/miniaudio-1.61-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "md5:324fbb5568fba9f782b699b616bf5b5c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/8c/5a/7a42f7b9ab0b7a1f30cc73c868c4bfd23bb414834e7cc4229a22013332ad/miniaudio-1.61-cp310-cp310-win32.whl", hash = "md5:b2ac5e215b8b02a7d2feeefc173b0e6d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a9/b9/327ef0605772f6bed1d07af42367928b71ca300f0a127eaf86e70bc96d7b/miniaudio-1.61-cp310-cp310-win_amd64.whl", hash = "md5:fd559d1747f87eb495a78a03ff617762" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ec/35/3713c34736d4feb7efc430377b7ed2b49f1c5dde6c5a8e2a13b704688cbc/miniaudio-1.61-cp311-cp311-macosx_10_9_x86_64.whl", hash = "md5:3d06f7f30d6709f224b523946a546374" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/84/2a/c4fb14aa91a7accc09962f331b2f327edebc75b46eb26a4d9f2d1fa77151/miniaudio-1.61-cp311-cp311-macosx_11_0_arm64.whl", hash = "md5:3fb1e70ee7906befa3cbcc058f36b340" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/5b/a5/aeb1728866e7e12cf98c3931148382fea58bb6e432ddb8a1a43c8094e2c7/miniaudio-1.61-cp311-cp311-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:2f2a0eae04e7c9e2b8583499d632328b" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/58/ef/9de72a39622569cb999e9f681f5b5b9a8c1aa93131c0867a830fbc7ffa25/miniaudio-1.61-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:83921be6cf3ae6172b1086ac0e230a87" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/82/e8/93538c0ab664b970c383d6b9c5bd2ef776c5324ab83b72395b4cb474912f/miniaudio-1.61-cp311-cp311-musllinux_1_2_i686.whl", hash = "md5:1426abf15727435cd040ede790e32b33" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b4/aa/6cbcfb657b2ccdd2f760ad28ce456f08f24d4e7d10f7d43705b1b9bb813c/miniaudio-1.61-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "md5:b3eb53df370807f2d171a10eab58870b" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c6/8b/48e3b594137b70ed03ad870656a84aa7f2a060ca789958cb55113b258400/miniaudio-1.61-cp311-cp311-win32.whl", hash = "md5:2e53831e79aabcc2f579650cb7260792" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/31/38/50bd9174a6200819e7321a98362484786cce14d48eee8c12cc1a8c073ab6/miniaudio-1.61-cp311-cp311-win_amd64.whl", hash = "md5:e1a5230e8d6797353c7fea5077d93d9e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/61/2f/87034296394174490b8212a290cc35e1cbc19b07a2ff3353443ca5cf7b24/miniaudio-1.61-cp312-cp312-macosx_10_9_x86_64.whl", hash = "md5:ac9cbbc1dfb421f5e6211f54106af06f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/50/ea/279be3422c082596695f8c0372f913203e015e0062aa42b7597801858a73/miniaudio-1.61-cp312-cp312-macosx_11_0_arm64.whl", hash = "md5:8b3d9f983db184758bf40ae552487cfe" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/fb/d6/bd6d5691014cfd2c00e3f5b9ac2bea5108caccf6a03db73244f662362968/miniaudio-1.61-cp312-cp312-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:52fab5bbcc6a5449b129fa3dbaec4ed5" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/8d/cc/89071844e8f4c149f3d5f6707635aaa5851c8981280943cc636e16990287/miniaudio-1.61-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:de34f835ea6e947c73c56e375eb794d1" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1d/31/d73ca371029f89bbd181f7cced5efaaae0507ed5fd0bf9c5a76233e4d051/miniaudio-1.61-cp312-cp312-musllinux_1_2_i686.whl", hash = "md5:ffde3be2364096b1136123a868ad5163" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/28/f9/c90e3dc3f769c65e143a452faaabb15b024c0dc3069e1592fb149015755e/miniaudio-1.61-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "md5:28d12e347013aa26c4e734059d7659bb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3c/38/c08fd29cc9722ed781520a70faccfe83a339412651d45dfdab18180251b4/miniaudio-1.61-cp312-cp312-win32.whl", hash = "md5:4c72c470db38eb93b39bd9b330ef457a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/45/59/f567ac9959fb1fb14770690bae3261e43a08653e9b179a5237020095992b/miniaudio-1.61-cp312-cp312-win_amd64.whl", hash = "md5:53fd695bef5a710b6e0f0712680ba8a4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/55/77/696857744786afbddd578b258d4e305c7f6a348656277f289c90090f4eec/miniaudio-1.61-cp38-cp38-macosx_10_9_x86_64.whl", hash = "md5:09c3fefb7f6338725f31cf9d181524bf" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/bd/04/7754be7d7b3b8451c3c02f9c7ec5adcbca22af7a879eff86d97df5f9f640/miniaudio-1.61-cp38-cp38-macosx_11_0_arm64.whl", hash = "md5:9c5034d0623625bd12ac6ab58b7df4dd" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e9/47/7755e2eb8498855ab30670be23421879b6ccd0fbc6548429f738ffab83da/miniaudio-1.61-cp38-cp38-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:21b5e0d623da0ff13324e7224480b202" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a3/22/173aeb488e4a9b78e9b95a399ea4dae0b9171f7ac47bea3365505a08c89f/miniaudio-1.61-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:058a06aaf29e8f2475fa9e4e7b362355" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a6/f1/e52b0cfc8b2b04c97906eac9ddf3d2a030fc9282d80b5bbf843f873d1eff/miniaudio-1.61-cp38-cp38-musllinux_1_2_i686.whl", hash = "md5:173cdd42770c40672d02aef3ff1605b2" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/68/b3/f36bf352f3ef4bbfa0571d41e8f24b44b7daa7ed672daa569a38cad8b35d/miniaudio-1.61-cp38-cp38-musllinux_1_2_x86_64.whl", hash = "md5:fdcb798af798f414b2ba38c09b419ea4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/64/94/917a76df4fbb583e9ef78d12aead46b105f29db6a28a617ea5a410ef6881/miniaudio-1.61-cp38-cp38-win32.whl", hash = "md5:88f05806d62194a174c2ad99dc2e4115" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/58/9d/0c59e60c85de7c42992270b3d9d7e77a6081106696288ecca7b0b7f00622/miniaudio-1.61-cp38-cp38-win_amd64.whl", hash = "md5:f92c0a6e0db9d485df36a1f9f5eb68a6" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/47/1c/c4f0955291b9bb38b532f3b5668969230efae07aa1b0eae23872d3dac827/miniaudio-1.61-cp39-cp39-macosx_10_9_x86_64.whl", hash = "md5:7d1d5f0ac584031df00672dfaf47d504" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/51/2c/7382603226d6fb593257a1186dc14df7123cb09bebf3ffbcec856b3d0737/miniaudio-1.61-cp39-cp39-macosx_11_0_arm64.whl", hash = "md5:c8b04cd4c36b1e05df97a1a7e82a47c6" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/25/53/e33de98d4ea42785ba625d0364c5f13d453e8198e1175876faa4b9fe0abd/miniaudio-1.61-cp39-cp39-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:a19f70f503f03050dae55634ea665208" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/34/f7/2c40b64c5b60d5d2dbaa815e2623dc276eaaad9fe1863b82e96240fa31cb/miniaudio-1.61-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:7328351630ffaf0bd31c77b830349e9b" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a5/5f/fe3a25ff185c548aa660220a07f178edec6278884c7f561282f591f1ae25/miniaudio-1.61-cp39-cp39-musllinux_1_2_i686.whl", hash = "md5:109c16de8ef10f3a33fe9b581661b9a3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/19/29/a5b585ab5c276c5aac359f580c63be2dfb8b938147aff332d91a5bce1753/miniaudio-1.61-cp39-cp39-musllinux_1_2_x86_64.whl", hash = "md5:83550a4bb7ac0ebef4772199305aa03e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/11/20/af393992651a75881080e8b170db8d0a4c7c1d79480b9cd48e2c3a26c294/miniaudio-1.61-cp39-cp39-win32.whl", hash = "md5:468c3d783ed9d7fdc1a3518e8f7ba263" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a4/03/1881c25877154b232552821abe1330fa3d7790fc66de32792966a08d829a/miniaudio-1.61-cp39-cp39-win_amd64.whl", hash = "md5:bc14325ff7dd51d8824d6922cd4dd05e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ca/3b/3e9c4530f9fc8cb7dc062d9a34c297f4267c11ec7b52b0685816b0174451/miniaudio-1.61-pp310-pypy310_pp73-macosx_10_15_x86_64.whl", hash = "md5:18e09000cb29f401bd8a6e2762fed8dd" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/dc/5a/e53365c361c8ef21dddbddc1cb48a8ada96b38ef02a5913cc39f4d5a3ad7/miniaudio-1.61-pp310-pypy310_pp73-macosx_11_0_arm64.whl", hash = "md5:2d453f4f2e036b85e44a99dcf94223c5" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4e/a3/76f7ad5352bde79503c7ef134302ed5790f21b1b31d99e9c708860988f26/miniaudio-1.61-pp310-pypy310_pp73-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:9e3ad522bd5cc32b3bff5d709c5c1451" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/24/6e/b63a26d307f8ee95ce455e3ed768b2756b8ccb3e7d2bee809fb4ce3c935e/miniaudio-1.61-pp310-pypy310_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:28a8748653b2f6a6ef6baac524d05353" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/33/ed/33886c386345c57ab5ad1f71302e1e96e3f10e942f042018710b025c9452/miniaudio-1.61-pp310-pypy310_pp73-win_amd64.whl", hash = "md5:1cf99ab040c3214fd1c470b574cec06a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/48/b5/194c2b27a1dac8a266c4cda5188af683776a5af560a03c6572fdf3f74365/miniaudio-1.61-pp38-pypy38_pp73-macosx_10_9_x86_64.whl", hash = "md5:28af60b82192495169488051efd24bb0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/8c/25/e8855490968afd316bfc762e1caafa707d6840f8d4e93ba4e31a693851f1/miniaudio-1.61-pp38-pypy38_pp73-macosx_11_0_arm64.whl", hash = "md5:e23b8213a7cb3a2c6f0cd3689c920270" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d1/28/f63aaaf8a8a321258574f6b5d14887775b17ec9c6356916b77954538992f/miniaudio-1.61-pp38-pypy38_pp73-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:652fdebf2373f29130b71c20be4b916b" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/01/3e/fe932bb91bd184f0fff95b7165b8eaf82e11bedae597063cd193b373081a/miniaudio-1.61-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:ffc8c4d5de1c1dec8befd1e777bab1d0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d5/3e/a375cf21e0d74198ecc2e97eb724f561e6c3c335733f8601fd846be4bfb5/miniaudio-1.61-pp38-pypy38_pp73-win_amd64.whl", hash = "md5:4e49934c69ccb09b80f848d6d88db8b4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ab/e0/7e8c27c31b7c818d89272eb8cb1e71b716dbcbe120fbeaeab8fd510c1717/miniaudio-1.61-pp39-pypy39_pp73-macosx_10_15_x86_64.whl", hash = "md5:1bc184b1bc75bef7dd1242211f811ad3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/fd/a6/a4081f7ccc495620d3451fbc348f6a8771aa59597b8ab77187d7194b4478/miniaudio-1.61-pp39-pypy39_pp73-macosx_11_0_arm64.whl", hash = "md5:f19a71a24a71548150a9bcc46b8a29ae" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ef/e7/0d1f752160bbc91d1e1681251306e9ded95aab5686424d6a1b6a7a662098/miniaudio-1.61-pp39-pypy39_pp73-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "md5:74eca54d794d29f9bf81b4b6b1c29491" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/56/1b/f055188fccd65722d06d8bdf07f9269f1a5fb7ef0cc431ec52783f00aae3/miniaudio-1.61-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:b3a246e63c0f9df692bc61395a21c596" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/49/3f/39a276830734d869ccb6cd48e5059120b5beb8ddffca840bd75bf6f65c5b/miniaudio-1.61-pp39-pypy39_pp73-win_amd64.whl", hash = "md5:5886df9bc3116c9c8d5a6560bbafdb1e" },
+]
+
+[[package]]
+name = "numpy"
+version = "1.24.4"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version < '3.10'",
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/a4/9b/027bec52c633f6556dba6b722d9a0befb40498b9ceddd29cbe67a45a127c/numpy-1.24.4.tar.gz", hash = "md5:3f3995540a17854a29dc79f8eeecd832" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/6b/80/6cdfb3e275d95155a34659163b83c09e3a3ff9f1456880bec6cc63d71083/numpy-1.24.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "md5:25049e3aee79dde29e7a498d3ad13379" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/64/5f/3f01d753e2175cfade1013eea08db99ba1ee4bdb147ebcf3623b75d12aa7/numpy-1.24.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "md5:579b5c357c918feaef4af03af8afb721" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/5a/b3/2f9c21d799fa07053ffa151faccdceeb69beec5a010576b8991f614021f7/numpy-1.24.4-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:c873a14fa4f0210884db9c05e2904286" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/10/be/ae5bf4737cb79ba437879915791f6f26d92583c738d7d960ad94e5c36adf/numpy-1.24.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:110a13ac016286059f0658b52b3646c0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c0/64/908c1087be6285f40e4b3e79454552a701664a079321cff519d8c7051d06/numpy-1.24.4-cp310-cp310-win32.whl", hash = "md5:fa67218966c0aef4094867cad7703648" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/22/55/3d5a7c1142e0d9329ad27cece17933b0e2ab4e54ddc5c1861fbfeb3f7693/numpy-1.24.4-cp310-cp310-win_amd64.whl", hash = "md5:6ee768803d8ebac43ee0a04e628a69f9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a9/cc/5ed2280a27e5dab12994c884f1f4d8c3bd4d885d02ae9e52a9d213a6a5e2/numpy-1.24.4-cp311-cp311-macosx_10_9_x86_64.whl", hash = "md5:0c918c16b58cb7f6773ea7d76e0bdaff" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c0/bc/77635c657a3668cf652806210b8662e1aff84b818a55ba88257abf6637a8/numpy-1.24.4-cp311-cp311-macosx_11_0_arm64.whl", hash = "md5:20506ae8003faf097c6b3a8915b4140e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a7/4c/96cdaa34f54c05e97c1c50f39f98d608f96f0677a6589e64e53104e22904/numpy-1.24.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:902df9d5963e89d88a1939d94207857f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/22/97/dfb1a31bb46686f09e68ea6ac5c63fdee0d22d7b23b8f3f7ea07712869ef/numpy-1.24.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:2543611d802c141c8276e4868b4d9619" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/35/e2/76a11e54139654a324d107da1d98f99e7aa2a7ef97cfd7c631fba7dbde71/numpy-1.24.4-cp311-cp311-win32.whl", hash = "md5:37b23a4e4e148d61dd3a515ac5dbf7ec" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d8/ec/ebef2f7d7c28503f958f0f8b992e7ce606fb74f9e891199329d5f5f87404/numpy-1.24.4-cp311-cp311-win_amd64.whl", hash = "md5:25e9f6bee2b65ff2a87588e717f15165" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/11/10/943cfb579f1a02909ff96464c69893b1d25be3731b5d3652c2e0cf1281ea/numpy-1.24.4-cp38-cp38-macosx_10_9_x86_64.whl", hash = "md5:f39a0cc3655a482af7d300bcaff5978e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a7/ae/f53b7b265fdc701e663fbb322a8e9d4b14d9cb7b2385f45ddfabfc4327e4/numpy-1.24.4-cp38-cp38-macosx_11_0_arm64.whl", hash = "md5:9ed27941388fdb392e8969169f3fc600" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/25/6f/2586a50ad72e8dbb1d8381f837008a0321a3516dfd7cb57fc8cf7e4bb06b/numpy-1.24.4-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:dee3f0c7482f1dc8bd1cd27b9b028a2c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/98/5d/5738903efe0ecb73e51eb44feafba32bdba2081263d40c5043568ff60faf/numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:2cc0967af29df3caef9fb3520f14e071" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d1/57/8d328f0b91c733aa9aa7ee540dbc49b58796c862b4fbcb1146c701e888da/numpy-1.24.4-cp38-cp38-win32.whl", hash = "md5:8572a3a0973fa78355bcb5f737745b47" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/69/65/0d47953afa0ad569d12de5f65d964321c208492064c38fe3b0b9744f8d44/numpy-1.24.4-cp38-cp38-win_amd64.whl", hash = "md5:771c63f2ef0d31466bbb12362a532265" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/9a/cd/d5b0402b801c8a8b56b04c1e85c6165efab298d2f0ab741c2406516ede3a/numpy-1.24.4-cp39-cp39-macosx_10_9_x86_64.whl", hash = "md5:5713d9dc3dff287fb72121fe1960c48d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/14/27/638aaa446f39113a3ed38b37a66243e21b38110d021bfcb940c383e120f2/numpy-1.24.4-cp39-cp39-macosx_11_0_arm64.whl", hash = "md5:4e6718e3b655219a2a733b4fa242ca32" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/8f/27/91894916e50627476cff1a4e4363ab6179d01077d71b9afed41d9e1f18bf/numpy-1.24.4-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:31487f9a52ef81f8f88ec7fce8738dad" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/7a/7c/d7b2a0417af6428440c0ad7cb9799073e507b1a465f827d058b826236964/numpy-1.24.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:ea597b30187e55eb16ee31631e66f60d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/18/9d/e02ace5d7dfccee796c37b995c63322674daf88ae2f4a4724c5dd0afcc91/numpy-1.24.4-cp39-cp39-win32.whl", hash = "md5:98adbf30c67154056474001c125f6188" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/63/38/6cc19d6b8bfa1d1a459daf2b3fe325453153ca7019976274b6f33d8b5663/numpy-1.24.4-cp39-cp39-win_amd64.whl", hash = "md5:49c444b0e572ef45f1d92c106a36004e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a4/fd/8dff40e25e937c94257455c237b9b6bf5a30d42dd1cc11555533be099492/numpy-1.24.4-pp38-pypy38_pp73-macosx_10_9_x86_64.whl", hash = "md5:cdddfdeac437b0f20b4e366f00b5c42e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/42/e7/4bf953c6e05df90c6d351af69966384fed8e988d0e8c54dad7103b59f3ba/numpy-1.24.4-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:3778338c15628caa3abd61e6f7bd46ec" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/fc/dd/9106005eb477d022b60b3817ed5937a43dad8fd1f20b0610ea8a32fcb407/numpy-1.24.4-pp38-pypy38_pp73-win_amd64.whl", hash = "md5:e16bd49d5295dc1b01ed50d76229fb54" },
+]
+
+[[package]]
+name = "numpy"
+version = "2.2.6"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version == '3.10.*'",
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/76/21/7d2a95e4bba9dc13d043ee156a356c0a8f0c6309dff6b21b4d71a073b8a8/numpy-2.2.6.tar.gz", hash = "md5:63d66dc1db9d603df0a84c870e703cfc" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/9a/3e/ed6db5be21ce87955c0cbd3009f2803f59fa08df21b5df06862e2d8e2bdd/numpy-2.2.6-cp310-cp310-macosx_10_9_x86_64.whl", hash = "md5:259343f056061f6eadb2f4b8999d06d4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/22/c2/4b9221495b2a132cc9d2eb862e21d42a009f5a60e45fc44b00118c174bff/numpy-2.2.6-cp310-cp310-macosx_11_0_arm64.whl", hash = "md5:16fa85488e149489ce7ee044d7b0d307" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/fd/77/dc2fcfc66943c6410e2bf598062f5959372735ffda175b39906d54f02349/numpy-2.2.6-cp310-cp310-macosx_14_0_arm64.whl", hash = "md5:f01b7aea9d2b76b1eeb49766e615d689" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/7a/4f/1cb5fdc353a5f5cc7feb692db9b8ec2c3d6405453f982435efc52561df58/numpy-2.2.6-cp310-cp310-macosx_14_0_x86_64.whl", hash = "md5:f2ddc2b22517f6e31caa1372b12c2499" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/eb/17/96a3acd228cec142fcb8723bd3cc39c2a474f7dcf0a5d16731980bcafa95/numpy-2.2.6-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:52190e22869884f0870eb3df7a283ca9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b4/63/3de6a34ad7ad6646ac7d2f55ebc6ad439dbbf9c4370017c50cf403fb19b5/numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:8f382b9ca6770db600edd5ea2447a925" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/07/b6/89d837eddef52b3d0cec5c6ba0456c1bf1b9ef6a6672fc2b7873c3ec4e2e/numpy-2.2.6-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "md5:e604aae2ef6e01fb92ecc39aca0424d9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/01/c8/dc6ae86e3c61cfec1f178e5c9f7858584049b6093f843bca541f94120920/numpy-2.2.6-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "md5:3e5626cf6d8bec95d430a7362e71691c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/5b/c5/0064b1b7e7c89137b471ccec1fd2282fceaae0ab3a9550f2568782d80357/numpy-2.2.6-cp310-cp310-win32.whl", hash = "md5:8f4f1982837618ed7636ebd432234aeb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a3/dd/4b822569d6b96c39d1215dbae0582fd99954dcbcf0c1a13c61783feaca3f/numpy-2.2.6-cp310-cp310-win_amd64.whl", hash = "md5:1cfd2ac5609b4800512f0ce304e19acc" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/da/a8/4f83e2aa666a9fbf56d6118faaaf5f1974d456b1823fda0a176eff722839/numpy-2.2.6-cp311-cp311-macosx_10_9_x86_64.whl", hash = "md5:116203803ceeaa911dd64810b0305b4c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b3/2b/64e1affc7972decb74c9e29e5649fac940514910960ba25cd9af4488b66c/numpy-2.2.6-cp311-cp311-macosx_11_0_arm64.whl", hash = "md5:0427961f3a70ed92b1c4d2c5516c5803" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4a/9f/0121e375000b5e50ffdd8b25bf78d8e1a5aa4cca3f185d41265198c7b834/numpy-2.2.6-cp311-cp311-macosx_14_0_arm64.whl", hash = "md5:feb8104ed864d51c68984ff93f7255b5" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/31/0d/b48c405c91693635fbe2dcd7bc84a33a602add5f63286e024d3b6741411c/numpy-2.2.6-cp311-cp311-macosx_14_0_x86_64.whl", hash = "md5:f640cd91637f1d474947ecdb18d17ee8" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/52/b8/7f0554d49b565d0171eab6e99001846882000883998e7b7d9f0d98b1f934/numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:2f87d921a50fe50d04bb62125f8638dd" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b3/dd/2238b898e51bd6d389b7389ffb20d7f4c10066d80351187ec8e303a5a475/numpy-2.2.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:7f986c33f49d5940d6d005ff7039e420" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/83/6c/44d0325722cf644f191042bf47eedad61c1e6df2432ed65cbe28509d404e/numpy-2.2.6-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "md5:0f7073c78e0aede7179c537f64856db7" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ae/9d/81e8216030ce66be25279098789b665d49ff19eef08bfa8cb96d4957f422/numpy-2.2.6-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "md5:7402bbedcc0b59bd6cef1c483b77dac0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/6a/fd/e19617b9530b031db51b0926eed5345ce8ddc669bb3bc0044b23e275ebe8/numpy-2.2.6-cp311-cp311-win32.whl", hash = "md5:93c920d40abbc10d5d056b8bfbcdad74" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/31/0a/f354fb7176b81747d870f7991dc763e157a934c717b67b58456bc63da3df/numpy-2.2.6-cp311-cp311-win_amd64.whl", hash = "md5:9162cb90bff0e4ba322f1e61da9f2fba" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/82/5d/c00588b6cf18e1da539b45d3598d3557084990dcc4331960c15ee776ee41/numpy-2.2.6-cp312-cp312-macosx_10_13_x86_64.whl", hash = "md5:75e9fa94b0a6ef568b532f6e0773a6a7" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/66/ee/560deadcdde6c2f90200450d5938f63a34b37e27ebff162810f716f6a230/numpy-2.2.6-cp312-cp312-macosx_11_0_arm64.whl", hash = "md5:79d8f89e82971bb2a2f61d0ef8f1a677" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3c/65/4baa99f1c53b30adf0acd9a5519078871ddde8d2339dc5a7fde80d9d87da/numpy-2.2.6-cp312-cp312-macosx_14_0_arm64.whl", hash = "md5:fb553e49196bce93af4b0d7e1e8fad1e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/cc/89/e5a34c071a0570cc40c9a54eb472d113eea6d002e9ae12bb3a8407fb912e/numpy-2.2.6-cp312-cp312-macosx_14_0_x86_64.whl", hash = "md5:01a338bc3a5349b5b7db4335fe879810" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f8/35/8c80729f1ff76b3921d5c9487c7ac3de9b2a103b1cd05e905b3090513510/numpy-2.2.6-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:f37533a7ae4aa95da824b1df2786ac55" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/8c/3d/1e1db36cfd41f895d266b103df00ca5b3cbe965184df824dec5c08c6b803/numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:2f9ac35f955d9217b6841568ce13d636" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/61/c6/03ed30992602c85aa3cd95b9070a514f8b3c33e31124694438d88809ae36/numpy-2.2.6-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "md5:df530a075c04dbef9abcac95d027c8bc" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b7/25/5761d832a81df431e260719ec45de696414266613c9ee268394dd5ad8236/numpy-2.2.6-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "md5:4edf8f80feec739de3e08fffe97195a3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/57/0a/72d5a3527c5ebffcd47bde9162c39fae1f90138c961e5296491ce778e682/numpy-2.2.6-cp312-cp312-win32.whl", hash = "md5:3e2664254d9a7bb5c66df2b108aaec2f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/36/fa/8c9210162ca1b88529ab76b41ba02d433fd54fecaf6feb70ef9f124683f1/numpy-2.2.6-cp312-cp312-win_amd64.whl", hash = "md5:ae2e39f1dba9b91d35edcd8736041df8" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f9/5c/6657823f4f594f72b5471f1db1ab12e26e890bb2e41897522d134d2a3e81/numpy-2.2.6-cp313-cp313-macosx_10_13_x86_64.whl", hash = "md5:2faa32e27b81105db53fb2fc25a54e0d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/dc/9e/14520dc3dadf3c803473bd07e9b2bd1b69bc583cb2497b47000fed2fa92f/numpy-2.2.6-cp313-cp313-macosx_11_0_arm64.whl", hash = "md5:0d05b1bb5af5059c8775a4f10fa0ec3d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4f/06/7e96c57d90bebdce9918412087fc22ca9851cceaf5567a45c1f404480e9e/numpy-2.2.6-cp313-cp313-macosx_14_0_arm64.whl", hash = "md5:bb404027de8df58312964e26528ef591" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/73/ed/63d920c23b4289fdac96ddbdd6132e9427790977d5457cd132f18e76eae0/numpy-2.2.6-cp313-cp313-macosx_14_0_x86_64.whl", hash = "md5:1340a90e0f62a31691e475214f773196" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/85/c5/e19c8f99d83fd377ec8c7e0cf627a8049746da54afc24ef0a0cb73d5dfb5/numpy-2.2.6-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:954981f2846e6735798fb33c1e6fba76" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/19/49/4df9123aafa7b539317bf6d342cb6d227e49f7a35b99c287a6109b13dd93/numpy-2.2.6-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:4e4eccd129b31fbef3ced7fb338e862e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b2/6c/04b5f47f4f32f7c2b0e7260442a8cbcf8168b0e1a41ff1495da42f42a14f/numpy-2.2.6-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "md5:c704c1c56c777bc0fc0d54bbcf9f2ddb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/17/0a/5cd92e352c1307640d5b6fec1b2ffb06cd0dabe7d7b8227f97933d378422/numpy-2.2.6-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "md5:fb459919a3433235312673bd5797ab8b" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f0/3b/5cba2b1d88760ef86596ad0f3d484b1cbff7c115ae2429678465057c5155/numpy-2.2.6-cp313-cp313-win32.whl", hash = "md5:9998e8ae155872c375ce6c020654176b" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/cb/3b/d58c12eafcb298d4e6d0d40216866ab15f59e55d148a5658bb3132311fcf/numpy-2.2.6-cp313-cp313-win_amd64.whl", hash = "md5:03df8a78963b318b4dfede10b213dce4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/6b/9e/4bf918b818e516322db999ac25d00c75788ddfd2d2ade4fa66f1f38097e1/numpy-2.2.6-cp313-cp313t-macosx_10_13_x86_64.whl", hash = "md5:d1982e582eae2fb076942c0bbedcefe4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/61/66/d2de6b291507517ff2e438e13ff7b1e2cdbdb7cb40b3ed475377aece69f9/numpy-2.2.6-cp313-cp313t-macosx_11_0_arm64.whl", hash = "md5:cbc7a48b9ca730a8d40927666651430a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e4/25/480387655407ead912e28ba3a820bc69af9adf13bcbe40b299d454ec011f/numpy-2.2.6-cp313-cp313t-macosx_14_0_arm64.whl", hash = "md5:cd1d2271c05ccc502b78827b88ff7670" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/aa/4a/6e313b5108f53dcbf3aca0c0f3e9c92f4c10ce57a0a721851f9785872895/numpy-2.2.6-cp313-cp313t-macosx_14_0_x86_64.whl", hash = "md5:c2b4fb7464e42af240ad51c8be5fb1ba" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b7/30/172c2d5c4be71fdf476e9de553443cf8e25feddbe185e0bd88b096915bcc/numpy-2.2.6-cp313-cp313t-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "md5:6a96c540b8df291a128bb50dfdad0ba4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/12/fb/9e743f8d4e4d3c710902cf87af3512082ae3d43b945d5d16563f26ec251d/numpy-2.2.6-cp313-cp313t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:113d466026e770badd1061a6e1a8ca92" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/12/75/ee20da0e58d3a66f204f38916757e01e33a9737d0b22373b3eb5a27358f9/numpy-2.2.6-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "md5:1fce5d26d8d6d021954f717b4bad483c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/76/95/bef5b37f29fc5e739947e9ce5179ad402875633308504a52d188302319c8/numpy-2.2.6-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "md5:d980d6c4b486ad09dbf62ac5cf1b0b2a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/09/04/f2f83279d287407cf36a7a8053a5abe7be3622a4363337338f2585e4afda/numpy-2.2.6-cp313-cp313t-win32.whl", hash = "md5:21571229d4376f3c0458d8eb1be3ba52" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/67/0e/35082d13c09c02c011cf21570543d202ad929d961c02a147493cb0c2bdf5/numpy-2.2.6-cp313-cp313t-win_amd64.whl", hash = "md5:4accc0387feec817565aeaba93c79173" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/9e/3b/d94a75f4dbf1ef5d321523ecac21ef23a3cd2ac8b78ae2aac40873590229/numpy-2.2.6-pp310-pypy310_pp73-macosx_10_15_x86_64.whl", hash = "md5:774589ee5f842137322ff19b56a35270" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/17/f4/09b2fa1b58f0fb4f7c7963a1649c64c4d315752240377ed74d9cd878f7b5/numpy-2.2.6-pp310-pypy310_pp73-macosx_14_0_x86_64.whl", hash = "md5:f934cef42ac65a2094dd5280aa6bf9a2" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/af/30/feba75f143bdc868a1cc3f44ccfa6c4b9ec522b36458e738cd00f67b573f/numpy-2.2.6-pp310-pypy310_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "md5:0e53fbb4195726c62b8f237a4bf545e9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/37/48/ac2a9584402fb6c0cd5b5d1a91dcf176b15760130dd386bbafdbfe3640bf/numpy-2.2.6-pp310-pypy310_pp73-win_amd64.whl", hash = "md5:3c96c89609022ecd27d44b12c2349a06" },
+]
+
+[[package]]
+name = "numpy"
+version = "2.4.2"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version >= '3.11'",
+]
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d3/44/71852273146957899753e69986246d6a176061ea183407e95418c2aa4d9a/numpy-2.4.2-cp311-cp311-macosx_10_9_x86_64.whl", hash = "md5:4d824210ad0ef879c88473227ea1e2a1" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/74/41/5d17d4058bd0cd96bcbd4d9ff0fb2e21f52702aab9a72e4a594efa18692f/numpy-2.4.2-cp311-cp311-macosx_11_0_arm64.whl", hash = "md5:46bb4fc52f2dbadd3b321c1884e9e5a2" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/49/48/fb1ce8136c19452ed15f033f8aee91d5defe515094e330ce368a0647846f/numpy-2.4.2-cp311-cp311-macosx_14_0_arm64.whl", hash = "md5:5b6c807b6d5ce2c63147ae283a9840e8" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/40/a9/3feb49f17bbd1300dd2570432961f5c8a4ffeff1db6f02c7273bd020a4c9/numpy-2.4.2-cp311-cp311-macosx_14_0_x86_64.whl", hash = "md5:18f5601e5c36a4ec92239d3c153380cd" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3f/39/fdf35cbd6d6e2fcad42fcf85ac04a85a0d0fbfbf34b30721c98d602fd70a/numpy-2.4.2-cp311-cp311-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:f43c09e844401cc9d8e3450e406b5904" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1b/46/6fa4ea94f1ddf969b2ee941290cca6f1bfac92b53c76ae5f44afe17ceb69/numpy-2.4.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:22570df75f9f79f2160fc458e576bfc2" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/09/a1/2a424e162b1a14a5bd860a464ab4e07513916a64ab1683fae262f735ccd2/numpy-2.4.2-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "md5:c8b76f4c51234edf294e4ed62f39e19d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ce/a2/73014149ff250628df72c58204822ac01d768697913881aacf839ff78680/numpy-2.4.2-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "md5:8f99c9d6f8e2bde38d739555857127ba" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/6c/0c/73e8be2f1accd56df74abc1c5e18527822067dced5ec0861b5bb882c2ce0/numpy-2.4.2-cp311-cp311-win32.whl", hash = "md5:691c24c7d5f122bedccdba3efdfc4343" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/76/ae/e0265e0163cf127c24c3969d29f1c4c64551a1e375d95a13d32eab25d364/numpy-2.4.2-cp311-cp311-win_amd64.whl", hash = "md5:6464f15a81fdd208277a3e5c7aec5494" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/29/a5/c43029af9b8014d6ea157f192652c50042e8911f4300f8f6ed3336bf437f/numpy-2.4.2-cp311-cp311-win_arm64.whl", hash = "md5:761e3b1c56f307f4fb61c5700b8c55ff" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/51/6e/6f394c9c77668153e14d4da83bcc247beb5952f6ead7699a1a2992613bea/numpy-2.4.2-cp312-cp312-macosx_10_13_x86_64.whl", hash = "md5:ccb13b13d70093afd48795e4754b73e3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1f/f8/55483431f2b2fd015ae6ed4fe62288823ce908437ed49db5a03d15151678/numpy-2.4.2-cp312-cp312-macosx_11_0_arm64.whl", hash = "md5:5269d625a8bd9998120703b370f3edfe" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2f/20/18026832b1845cdc82248208dd929ca14c9d8f2bac391f67440707fff27c/numpy-2.4.2-cp312-cp312-macosx_14_0_arm64.whl", hash = "md5:844f1221c9e9fedeea973e8df761caf3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/7d/33/2eb97c8a77daaba34eaa3fa7241a14ac5f51c46a6bd5911361b644c4a1e2/numpy-2.4.2-cp312-cp312-macosx_14_0_x86_64.whl", hash = "md5:b905049d8bc6cec67070a96c326acab0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b1/91/b97fdfd12dc75b02c44e26c6638241cc004d4079a0321a69c62f51470c4c/numpy-2.4.2-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:afd0dcb245d7c9d6ebe2d98b8c725a99" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f5/c6/a18e59f3f0b8071cc85cbc8d80cd02d68aa9710170b2553a117203d46936/numpy-2.4.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:cb177c6b6e2b9ff6800fa8cfee174572" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b7/83/9751502164601a79e18847309f5ceec0b1446d7b6aa12305759b72cf98b2/numpy-2.4.2-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "md5:ae37ef5135d944cb5f2b3622be3e1a67" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/61/c4/c4066322256ec740acc1c8923a10047818691d2f8aec254798f3dd90f5f2/numpy-2.4.2-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "md5:f4fef656b55a38be1dd93410879392d3" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ab/af/6157aa6da728fa4525a755bfad486ae7e3f76d4c1864138003eb84328497/numpy-2.4.2-cp312-cp312-win32.whl", hash = "md5:1c34d0230564efe2b6046df3bb35b794" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/92/0f/7ceaaeaacb40567071e94dbf2c9480c0ae453d5bb4f52bea3892c39dc83c/numpy-2.4.2-cp312-cp312-win_amd64.whl", hash = "md5:add03ad54a20759ec3bdc890aeec5913" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2f/a3/56c5c604fae6dd40fa2ed3040d005fca97e91bd320d232ac9931d77ba13c/numpy-2.4.2-cp312-cp312-win_arm64.whl", hash = "md5:51500a84785c30be48993e71568aa42a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a1/22/815b9fe25d1d7ae7d492152adbc7226d3eff731dffc38fe970589fcaaa38/numpy-2.4.2-cp313-cp313-macosx_10_13_x86_64.whl", hash = "md5:a10e71e2d7fe6aa7ccbbbd7313334bb6" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/09/f0/817d03a03f93ba9c6c8993de509277d84e69f9453601915e4a69554102a1/numpy-2.4.2-cp313-cp313-macosx_11_0_arm64.whl", hash = "md5:ce4e064034f53c87998ff60e2e748685" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/da/b4/f805ab79293c728b9a99438775ce51885fd4f31b76178767cfc718701a39/numpy-2.4.2-cp313-cp313-macosx_14_0_arm64.whl", hash = "md5:5686a2c72d7596093944aa1af9c3ecc6" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/74/09/826e4289844eccdcd64aac27d13b0fd3f32039915dd5b9ba01baae1f436c/numpy-2.4.2-cp313-cp313-macosx_14_0_x86_64.whl", hash = "md5:3ea04b4eec88778644cf1a98c4ae2eea" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/19/fb/cbfdbfa3057a10aea5422c558ac57538e6acc87ec1669e666d32ac198da7/numpy-2.4.2-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:e58319135dcc7f384c14c13116de540d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/04/dc/46066ce18d01645541f0186877377b9371b8fa8017fa8262002b4ef22612/numpy-2.4.2-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:c30c06ddbe301bf11f4e2870466139fa" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/14/d9/4b5adfc39a43fa6bf918c6d544bc60c05236cc2f6339847fc5b35e6cb5b0/numpy-2.4.2-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "md5:ea05aef65de1b6dd2d67853234b44600" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b7/20/adb6e6adde6d0130046e6fdfb7675cc62bc2f6b7b02239a09eb58435753d/numpy-2.4.2-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "md5:cf3b55bfd07aee22f79f2c31312be0b8" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/78/0e/0a73b3dff26803a8c02baa76398015ea2a5434d9b8265a7898a6028c1591/numpy-2.4.2-cp313-cp313-win32.whl", hash = "md5:6ae98b50b4a5ddd0ef8dcdd2f6e773d2" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/43/bc/6352f343522fcb2c04dbaf94cb30cca6fd32c1a750c06ad6231b4293708c/numpy-2.4.2-cp313-cp313-win_amd64.whl", hash = "md5:07c0e9ae11dbb0e9d38315c50a6f17ec" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/6e/8d/6da186483e308da5da1cc6918ce913dcfe14ffde98e710bfeff2a6158d4e/numpy-2.4.2-cp313-cp313-win_arm64.whl", hash = "md5:eada285d5fa24b9e5edc0b3735f4fef0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/25/a1/9510aa43555b44781968935c7548a8926274f815de42ad3997e9e83680dd/numpy-2.4.2-cp313-cp313t-macosx_11_0_arm64.whl", hash = "md5:4c96ca77555f25efe6455776a40401b5" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/36/30/6bbb5e76631a5ae46e7923dd16ca9d3f1c93cfa8d4ed79a129814a9d8db3/numpy-2.4.2-cp313-cp313t-macosx_14_0_arm64.whl", hash = "md5:617c9eb10248b72a6559d3f46b943933" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/46/00/3a490938800c1923b567b3a15cd17896e68052e2145d8662aaf3e1ffc58f/numpy-2.4.2-cp313-cp313t-macosx_14_0_x86_64.whl", hash = "md5:15ff352e75d9cfb3ec937536e23e7f48" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d3/e9/fac0890149898a9b609caa5af7455a948b544746e4b8fe7c212c8edd71f8/numpy-2.4.2-cp313-cp313t-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:01ac2b9864fc0149d7897e14bec40bbb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ea/5c/08887c54e68e1e28df53709f1893ce92932cc6f01f7c3d4dc952f61ffd4e/numpy-2.4.2-cp313-cp313t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:cde51333379b3e07e8a417bf6b8922a4" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4d/89/253db0fa0e66e9129c745e4ef25631dc37d5f1314dad2b53e907b8538e6d/numpy-2.4.2-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "md5:52f9f98c1e696eaf3302f6e9d0963a7f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2a/d5/cbade46ce97c59c6c3da525e8d95b7abe8a42974a1dc5c1d489c10433e88/numpy-2.4.2-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "md5:e587ba633907d83bdec5625742c5ad7f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/40/62/48f99ae172a4b63d981babe683685030e8a3df4f246c893ea5c6ef99f018/numpy-2.4.2-cp313-cp313t-win32.whl", hash = "md5:ab3923f4ed5fc23aee0721f33279acd1" },
+]
+
+[[package]]
+name = "packaging"
+version = "26.0"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz", hash = "md5:2cbdbb5754f038736c3c361826c6872a" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b7/b9/c538f279a4e237a006a2c98387d081e9eb060d203d8ed34467cc0f0b9b53/packaging-26.0-py3-none-any.whl", hash = "md5:6612a2b4cddb48af24b6de0de620e353" },
+]
+
+[[package]]
+name = "pluggy"
+version = "1.5.0"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version < '3.10'",
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/96/2d/02d4312c973c6050a18b314a5ad0b3210edb65a906f868e31c111dede4a6/pluggy-1.5.0.tar.gz", hash = "md5:ac0870be78ba0ee227a5c3955efeba59" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/88/5f/e351af9a41f866ac3f1fac4ca0613908d9a41741cfcf2228f4ad853b697d/pluggy-1.5.0-py3-none-any.whl", hash = "md5:07349a98333a31cbb6ef8f7a17905c77" },
+]
+
+[[package]]
+name = "pluggy"
+version = "1.6.0"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version >= '3.11'",
+    "python_full_version == '3.10.*'",
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/f9/e2/3e91f31a7d2b083fe6ef3fa267035b518369d9511ffab804f839851d2779/pluggy-1.6.0.tar.gz", hash = "md5:54391218af778acb006c2d915085d469" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl", hash = "md5:e107bd9fd0c26746617d74bac26fa0c5" },
+]
+
+[[package]]
+name = "pycparser"
+version = "2.23"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version < '3.10'",
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/fe/cf/d2d3b9f5699fb1e4615c8e32ff220203e43b248e1dfcc6736ad9057731ca/pycparser-2.23.tar.gz", hash = "md5:bb4946a7b0d83569f5d29f566a55180a" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a0/e3/59cd50310fc9b59512193629e1984c1f95e5c8ae6e5d8c69532ccc65a7fe/pycparser-2.23-py3-none-any.whl", hash = "md5:961daf0e0910747590f8a0101322bcd3" },
+]
+
+[[package]]
+name = "pycparser"
+version = "3.0"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version >= '3.11'",
+    "python_full_version == '3.10.*'",
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/1b/7d/92392ff7815c21062bea51aa7b87d45576f649f16458d78b7cf94b9ab2e6/pycparser-3.0.tar.gz", hash = "md5:56f3a0a82595b0cb04976cc0d3271a27" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/0c/c3/44f3fbbfa403ea2a7c779186dc20772604442dde72947e7d01069cbe98e3/pycparser-3.0-py3-none-any.whl", hash = "md5:dfc689e63af0e21be54c80938cc8ac46" },
+]
+
+[[package]]
+name = "pygments"
+version = "2.19.2"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz", hash = "md5:79260d1c566a507953a81d24b1c51c72" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/c7/21/705964c7812476f378728bdf590ca4b771ec72385c533964653c68e86bdc/pygments-2.19.2-py3-none-any.whl", hash = "md5:c6f882e4a4ffd8543f245d4f7ce0d7fa" },
+]
+
+[[package]]
+name = "pytest"
+version = "8.3.5"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version < '3.10'",
+]
+dependencies = [
+    { name = "colorama", marker = "python_full_version < '3.10' and sys_platform == 'win32'" },
+    { name = "exceptiongroup", marker = "python_full_version < '3.10'" },
+    { name = "iniconfig", version = "2.1.0", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version < '3.10'" },
+    { name = "packaging", marker = "python_full_version < '3.10'" },
+    { name = "pluggy", version = "1.5.0", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version < '3.10'" },
+    { name = "tomli", marker = "python_full_version < '3.10'" },
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/ae/3c/c9d525a414d506893f0cd8a8d0de7706446213181570cdbd766691164e40/pytest-8.3.5.tar.gz", hash = "md5:f22d0f0e12aee3b97225a89504d657cb" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/30/3d/64ad57c803f1fa1e963a7946b6e0fea4a70df53c1a7fed304586539c2bac/pytest-8.3.5-py3-none-any.whl", hash = "md5:7ce75916908b7b41f087b13afbe5614c" },
+]
+
+[[package]]
+name = "pytest"
+version = "9.0.2"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version >= '3.11'",
+    "python_full_version == '3.10.*'",
+]
+dependencies = [
+    { name = "colorama", marker = "python_full_version >= '3.10' and sys_platform == 'win32'" },
+    { name = "exceptiongroup", marker = "python_full_version == '3.10.*'" },
+    { name = "iniconfig", version = "2.3.0", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version >= '3.10'" },
+    { name = "packaging", marker = "python_full_version >= '3.10'" },
+    { name = "pluggy", version = "1.6.0", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version >= '3.10'" },
+    { name = "pygments", marker = "python_full_version >= '3.10'" },
+    { name = "tomli", marker = "python_full_version == '3.10.*'" },
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/d1/db/7ef3487e0fb0049ddb5ce41d3a49c235bf9ad299b6a25d5780a89f19230f/pytest-9.0.2.tar.gz", hash = "md5:ce26088b3b97ab8fed58c8883de23241" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3b/ab/b3226f0bd7cdcf710fbede2b3548584366da3b19b5021e74f5bde2a8fa3f/pytest-9.0.2-py3-none-any.whl", hash = "md5:600448842054deb501e95a70d7be737a" },
+]
+
+[[package]]
+name = "pytest-timeout"
+version = "2.4.0"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+dependencies = [
+    { name = "pytest", version = "8.3.5", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version < '3.10'" },
+    { name = "pytest", version = "9.0.2", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version >= '3.10'" },
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/ac/82/4c9ecabab13363e72d880f2fb504c5f750433b2b6f16e99f4ec21ada284c/pytest_timeout-2.4.0.tar.gz", hash = "md5:dbc9a376438aa779cff375236e505792" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/fa/b6/3127540ecdf1464a00e5a01ee60a1b09175f6913f0644ac748494d9c4b21/pytest_timeout-2.4.0-py3-none-any.whl", hash = "md5:9fe74fca4eec947f1515f5dddc958b3b" },
+]
+
+[[package]]
+name = "requests"
+version = "2.32.4"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version < '3.10'",
+]
+dependencies = [
+    { name = "certifi", marker = "python_full_version < '3.10'" },
+    { name = "charset-normalizer", marker = "python_full_version < '3.10'" },
+    { name = "idna", marker = "python_full_version < '3.10'" },
+    { name = "urllib3", version = "2.2.3", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version < '3.10'" },
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz", hash = "md5:4a380c14fe0f4465c9dbf79ffacefd8f" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/7c/e4/56027c4a6b4ae70ca9de302488c5ca95ad4a39e190093d6c1a8ace08341b/requests-2.32.4-py3-none-any.whl", hash = "md5:fa8fa331f951fbc5e62f3d3e683a77a4" },
+]
+
+[[package]]
+name = "requests"
+version = "2.32.5"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version >= '3.11'",
+    "python_full_version == '3.10.*'",
+]
+dependencies = [
+    { name = "certifi", marker = "python_full_version >= '3.10'" },
+    { name = "charset-normalizer", marker = "python_full_version >= '3.10'" },
+    { name = "idna", marker = "python_full_version >= '3.10'" },
+    { name = "urllib3", version = "2.6.3", source = { registry = "https://private.hubteam.com/pypi/simple/" }, marker = "python_full_version >= '3.10'" },
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz", hash = "md5:cb3d3c58f07cf23f12c345f2c96a6f12" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1e/db/4254e3eabe8020b458f1a747140d32277ec7a271daf1d235b70dc0b4e6e3/requests-2.32.5-py3-none-any.whl", hash = "md5:bd126794a95616a0da6192b288f9bb88" },
+]
+
+[[package]]
+name = "tomli"
+version = "2.4.0"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/82/30/31573e9457673ab10aa432461bee537ce6cef177667deca369efb79df071/tomli-2.4.0.tar.gz", hash = "md5:10ef5dd352e7dfd2d6ed322cf0280435" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3c/d9/3dc2289e1f3b32eb19b9785b6a006b28ee99acb37d1d47f78d4c10e28bf8/tomli-2.4.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "md5:99a9e64d119e01f60648bfbb45e39fe0" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/51/32/ef9f6845e6b9ca392cd3f64f9ec185cc6f09f0a2df3db08cbe8809d1d435/tomli-2.4.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "md5:76613c82b831258eb31458e7db3c51fb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d6/c2/506e44cce89a8b1b1e047d64bd495c22c9f71f21e05f380f1a950dd9c217/tomli-2.4.0-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:b272541c175cabea5c257c2e1987ac3d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b3/40/e1b65986dbc861b7e986e8ec394598187fa8aee85b1650b01dd925ca0be8/tomli-2.4.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:0cae76dea9e7a83e0bc2bf0d2c4abc00" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/9c/6f/6e39ce66b58a5b7ae572a0f4352ff40c71e8573633deda43f6a379d56b3e/tomli-2.4.0-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "md5:6eac7d9f35e5593d18d952e96ab1478a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/aa/ad/cb089cb190487caa80204d503c7fd0f4d443f90b95cf4ef5cf5aa0f439b0/tomli-2.4.0-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "md5:e4d26346c67b77e60bcfa8bd595a534c" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/0b/63/69125220e47fd7a3a27fd0de0c6398c89432fec41bc739823bcc66506af6/tomli-2.4.0-cp311-cp311-win32.whl", hash = "md5:9fc6ddeb2a8e89e85dbe090da1b1ed88" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/1e/0d/a22bb6c83f83386b0008425a6cd1fa1c14b5f3dd4bad05e98cf3dbbf4a64/tomli-2.4.0-cp311-cp311-win_amd64.whl", hash = "md5:4a79dd320bcc8c8af7ceeff152f69cce" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2f/6d/77be674a3485e75cacbf2ddba2b146911477bd887dda9d8c9dfb2f15e871/tomli-2.4.0-cp311-cp311-win_arm64.whl", hash = "md5:a7ab930f7a57e9d7542a910b4b0b9c3d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3c/43/7389a1869f2f26dba52404e1ef13b4784b6b37dac93bac53457e3ff24ca3/tomli-2.4.0-cp312-cp312-macosx_10_13_x86_64.whl", hash = "md5:dd23dd64b853e29640449e030fde3508" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e9/05/2f9bf110b5294132b2edf13fe6ca6ae456204f3d749f623307cbb7a946f2/tomli-2.4.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "md5:2f0bbc6ed900788a6fcdf97770bb36dc" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e8/41/1eda3ca1abc6f6154a8db4d714a4d35c4ad90adc0bcf700657291593fbf3/tomli-2.4.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:cb4fd6559a8ad72214433c96e7e40f1b" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/d2/6d/02ff5ab6c8868b41e7d4b987ce2b5f6a51d3335a70aa144edd999e055a01/tomli-2.4.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:f8037bcb82e26470afbfe45ff9e4dd07" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/7b/57/0405c59a909c45d5b6f146107c6d997825aa87568b042042f7a9c0afed34/tomli-2.4.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "md5:ab85b3f4a5046a0973d734a53ca7c0d1" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2c/0e/2e37568edd944b4165735687cbaf2fe3648129e440c26d02223672ee0630/tomli-2.4.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "md5:cd765c68a3a6f78f02786d70a7196c3f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/5a/1c/ee3b707fdac82aeeb92d1a113f803cf6d0f37bdca0849cb489553e1f417a/tomli-2.4.0-cp312-cp312-win32.whl", hash = "md5:295afa1269fab08d3f6c9ccf904a3080" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/69/13/c07a9177d0b3bab7913299b9278845fc6eaaca14a02667c6be0b0a2270c8/tomli-2.4.0-cp312-cp312-win_amd64.whl", hash = "md5:ae5ddb7f93eb7c3f4768d91a53240e84" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/18/27/e267a60bbeeee343bcc279bb9e8fbed0cbe224bc7b2a3dc2975f22809a09/tomli-2.4.0-cp312-cp312-win_arm64.whl", hash = "md5:4212b47dbc8e8728410844c33e52e083" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/34/91/7f65f9809f2936e1f4ce6268ae1903074563603b2a2bd969ebbda802744f/tomli-2.4.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "md5:8902bf68871e9b6813d21f5d0f3a42a2" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/20/aa/64dd73a5a849c2e8f216b755599c511badde80e91e9bc2271baa7b2cdbb1/tomli-2.4.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "md5:a478638fa89ceb55d8cd3f9739f4808e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/9e/8a/6d38870bd3d52c8d1505ce054469a73f73a0fe62c0eaf5dddf61447e32fa/tomli-2.4.0-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:449483e8bcde72cec0f10f4fb9508d14" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/59/bb/8002fadefb64ab2669e5b977df3f5e444febea60e717e755b38bb7c41029/tomli-2.4.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:e382bab49b56477fc806167d4c8a9500" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a5/3d/4cdb6f791682b2ea916af2de96121b3cb1284d7c203d97d92d6003e91c8d/tomli-2.4.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "md5:f996842f959db5ccd073136402310b44" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f2/4a/5f25789f9a460bd858ba9756ff52d0830d825b458e13f754952dd15fb7bb/tomli-2.4.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "md5:41432dd16eed6b1f888be1619d61a995" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/aa/2f/b73a36fea58dfa08e8b3a268750e6853a6aac2a349241a905ebd86f3047a/tomli-2.4.0-cp313-cp313-win32.whl", hash = "md5:c89b91ce84fd3e019c5a1e01afafec79" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/3b/af/ca18c134b5d75de7e8dc551c5234eaba2e8e951f6b30139599b53de9c187/tomli-2.4.0-cp313-cp313-win_amd64.whl", hash = "md5:0b2e0352bdea216c8ca74eff81b29d86" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/22/c3/b386b832f209fee8073c8138ec50f27b4460db2fdae9ffe022df89a57f9b/tomli-2.4.0-cp313-cp313-win_arm64.whl", hash = "md5:9f4078952c351d3fe4c571799fefd576" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f3/c4/84047a97eb1004418bc10bdbcfebda209fca6338002eba2dc27cc6d13563/tomli-2.4.0-cp314-cp314-macosx_10_15_x86_64.whl", hash = "md5:0b9900758a9ad7deafa449918ca1432f" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/a8/5d/d39038e646060b9d76274078cddf146ced86dc2b9e8bbf737ad5983609a0/tomli-2.4.0-cp314-cp314-macosx_11_0_arm64.whl", hash = "md5:16b565281bfed932308ce8779257978d" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/73/e5/383be1724cb30f4ce44983d249645684a48c435e1cd4f8b5cded8a816d3c/tomli-2.4.0-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:2e50db9158d541bfd0be4437984e3123" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/31/f0/bea80c17971c8d16d3cc109dc3585b0f2ce1036b5f4a8a183789023574f2/tomli-2.4.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:f855bb8cd3f418b38fc8b27d8e36ee50" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/2c/8f/2853c36abbb7608e3f945d8a74e32ed3a74ee3a1f468f1ffc7d1cb3abba6/tomli-2.4.0-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "md5:b0a7798cb8ff4dffa9ab8896f951e1d2" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/49/f0/6c05e3196ed5337b9fe7ea003e95fd3819a840b7a0f2bf5a408ef1dad8ed/tomli-2.4.0-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "md5:aa919981ec28fa1a90868547b8f0858a" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f3/f5/2922ef29c9f2951883525def7429967fc4d8208494e5ab524234f06b688b/tomli-2.4.0-cp314-cp314-win32.whl", hash = "md5:310cbb95bbc774497c48f4a67b03c311" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/7b/31/22b52e2e06dd2a5fdbc3ee73226d763b184ff21fc24e20316a44ccc4d96b/tomli-2.4.0-cp314-cp314-win_amd64.whl", hash = "md5:19ed364f394089f1d5cb0564544cbd4e" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/48/3d/5058dff3255a3d01b705413f64f4306a141a8fd7a251e5a495e3f192a998/tomli-2.4.0-cp314-cp314-win_arm64.whl", hash = "md5:13106948b2b1b5402ff77a9f3fe61f28" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b8/4e/75dab8586e268424202d3a1997ef6014919c941b50642a1682df43204c22/tomli-2.4.0-cp314-cp314t-macosx_10_15_x86_64.whl", hash = "md5:e9a01163dddb555a4d283aec15bdddf6" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/06/e3/b904d9ab1016829a776d97f163f183a48be6a4deb87304d1e0116a349519/tomli-2.4.0-cp314-cp314t-macosx_11_0_arm64.whl", hash = "md5:de2e7e5751bec09ac2f0b2e88d7cfdba" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/e3/5a/fc3622c8b1ad823e8ea98a35e3c632ee316d48f66f80f9708ceb4f2a0322/tomli-2.4.0-cp314-cp314t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "md5:9d328b0cb494d579c76d815e9f20d292" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/fd/33/62bd6152c8bdd4c305ad9faca48f51d3acb2df1f8791b1477d46ff86e7f8/tomli-2.4.0-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "md5:f294b52b652c304648dc55f8c581fcdb" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/4b/ff/ae53619499f5235ee4211e62a8d7982ba9e439a0fb4f2f351a93d67c1dd2/tomli-2.4.0-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "md5:660c4867e669269cea53dc8a761bb333" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/47/71/cbca7787fa68d4d0a9f7072821980b39fbb1b6faeb5f5cf02f4a5559fa28/tomli-2.4.0-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "md5:0e311723f5a94301533f587ab75f4cf2" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/f5/00/d595c120963ad42474cf6ee7771ad0d0e8a49d0f01e29576ee9195d9ecdf/tomli-2.4.0-cp314-cp314t-win32.whl", hash = "md5:625938d568ca695e674b3072dffc5888" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/de/69/9aa0c6a505c2f80e519b43764f8b4ba93b5a0bbd2d9a9de6e2b24271b9a5/tomli-2.4.0-cp314-cp314t-win_amd64.whl", hash = "md5:909309778c2ceb8fca7ee4908fa25b12" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/b3/9f/f1668c281c58cfae01482f7114a4b88d345e4c140386241a1a24dcc9e7bc/tomli-2.4.0-cp314-cp314t-win_arm64.whl", hash = "md5:f428c2b55ad60f754c171ac27c9c6bd9" },
+    { url = "https://build.hubteam.com/pypi-mirror/packages/23/d1/136eb2cb77520a31e1f64cbae9d33ec6df0d78bdf4160398e86eec8a8754/tomli-2.4.0-py3-none-any.whl", hash = "md5:d3ae6c5b7835d03146e761342a28e65a" },
+]
+
+[[package]]
+name = "typing-extensions"
+version = "4.13.2"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version < '3.10'",
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz", hash = "md5:58226788d248cee8d6283ee616543975" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/8b/54/b1ae86c0973cc6f0210b53d508ca3641fb6d0c56823f288d108bc7ab3cc8/typing_extensions-4.13.2-py3-none-any.whl", hash = "md5:0d9ada689b5a7c88163dd4c3417b8cc8" },
+]
+
+[[package]]
+name = "typing-extensions"
+version = "4.15.0"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version == '3.10.*'",
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz", hash = "md5:079e529d0b271647f3ec2720aee8fc65" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/18/67/36e9267722cc04a6b9f15c7f3441c2363321a3ea07da7ae0c0707beb2a9c/typing_extensions-4.15.0-py3-none-any.whl", hash = "md5:1394f56d85d87540f7907680572797e1" },
+]
+
+[[package]]
+name = "urllib3"
+version = "2.2.3"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version < '3.10'",
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz", hash = "md5:d65de4f0effae2b52669246f0aab0a91" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/ce/d9/5f4c13cecde62396b0d3fe530a50ccea91e7dfc1ccf0e09c228841bb5ba8/urllib3-2.2.3-py3-none-any.whl", hash = "md5:067bab0d1fabc9c24850d87b7a7fe2f7" },
+]
+
+[[package]]
+name = "urllib3"
+version = "2.6.3"
+source = { registry = "https://private.hubteam.com/pypi/simple/" }
+resolution-markers = [
+    "python_full_version >= '3.11'",
+    "python_full_version == '3.10.*'",
+]
+sdist = { url = "https://build.hubteam.com/pypi-mirror/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz", hash = "md5:2c381874816fe551f50a2551abae62b3" }
+wheels = [
+    { url = "https://build.hubteam.com/pypi-mirror/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl", hash = "md5:574c8593fd05938d292a624ea3f96e89" },
+]
