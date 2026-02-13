@@ -1,14 +1,14 @@
 import math
 import itertools
-from FFT import FFT
+from .FFT import FFT
 import numpy as np
 from collections import defaultdict
-from InputFile import InputFile
+from .InputFile import InputFile
 import multiprocessing
 import os
 import stat
-from error import *
-from common import *
+from .error import *
+from .common import *
 
 
 BUCKET_SIZE = 20
@@ -65,18 +65,22 @@ class MatchResult(BaseResult):
         short_file2 = os.path.basename(self.file2)
         if self.score > SCORE_THRESHOLD:
             if self.file1_len < self.file2_len:
-                return "MATCH {f1} {f2} ({s})".format(
+                return "MATCH {f1} {f2} ({s:.2f})".format(
                     f1=short_file1, f2=short_file2, s=self.score
                 )
             else:
-                return "MATCH {f2} {f1} ({s})".format(
+                return "MATCH {f2} {f1} ({s:.2f})".format(
                     f1=short_file1, f2=short_file2, s=self.score
                 )
         else:
             if self.file1_len < self.file2_len:
-                return "NO MATCH {f1} {f2}".format(f1=short_file1, f2=short_file2)
+                return "NO MATCH {f1} {f2} ({s:.2f})".format(
+                    f1=short_file1, f2=short_file2, s=self.score
+                )
             else:
-                return "NO MATCH {f2} {f1}".format(f1=short_file1, f2=short_file2)
+                return "NO MATCH {f2} {f1} ({s:.2f})".format(
+                    f1=short_file1, f2=short_file2, s=self.score
+                )
 
 
 def _to_fingerprints(freq_chunks):

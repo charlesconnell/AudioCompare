@@ -79,7 +79,7 @@ def run_audiomatch(args):
     Returns:
         CompletedProcess object with returncode, stdout, stderr
     """
-    cmd = [sys.executable, str(PROJECT_ROOT / "main.py")] + args
+    cmd = [sys.executable, "-m", "audiomatch.main"] + args
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
     return result
 
@@ -101,9 +101,9 @@ def parse_match_result(output):
         if line.startswith("MATCH ") or line.startswith("NO MATCH "):
             is_match = line.startswith("MATCH ")
 
-            # Extract score if it's a match
+            # Extract score (present in both MATCH and NO MATCH lines)
             score = None
-            if is_match and "(" in line and ")" in line:
+            if "(" in line and ")" in line:
                 score_str = line[line.find("(") + 1 : line.find(")")]
                 try:
                     score = float(score_str)
